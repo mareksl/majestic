@@ -1,0 +1,92 @@
+/* FLEX GRID */
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.header-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+footer {
+  flex: 0 0 auto;
+  align-self: flex-end;
+}
+
+header {
+  position: fixed;
+  height: 4rem;
+}
+
+.header-rest {
+  margin-top: 4rem;
+  // height: 100vh;
+  height: calc(100vh - 4rem);
+}
+
+footer,
+header {
+  width: 100%;
+  display: flex;
+  padding: 1rem 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.row {
+  overflow: hidden;
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: column;
+}
+
+.col {
+  flex: 1 1 auto;
+
+  &.col-last {
+    order: 0;
+  }
+  @for $i from 2 through 11 {
+    &.col-#{$i} {
+      flex-grow: $i;
+    }
+  }
+}
+@media screen and (min-width: 1140px) {
+  .row {
+    flex-flow: row;
+  }
+
+  .col {
+    flex: 1 1 8.333333%;
+
+    &.col-last {
+      order: 1;
+    }
+    @for $i from 2 through 11 {
+      &.col-#{$i} {
+        flex-basis: $i*8.333333%;
+      }
+    }
+  }
+}
+/* FLEX GRID END */
