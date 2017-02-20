@@ -1,19 +1,60 @@
-$primary-color-dark: #1c1a1a;
-$primary-color: #323030;
-$primary-color-light: #605e5e;
-$primary-color-text: #fff;
-$accent-color: #369329;
-$accent-color-dark: #205718;
-$accent-color-light: #45bb34;
+$primary-color-dark: #000;
+$primary-color: #fff;
+$primary-color-light: #fff;
+$primary-color-text: #000;
+$accent-color: #dd2307;
+$accent-color-dark: #e59616;
+$accent-color-light: #fccd08;
 $divider-color: #ccc;
 @import 'reset';
 @import 'flex-grid';
-@import 'typography';
+@import 'typography'; // MAIN STYLES
+$box-shadow: 0 .25rem .5rem -.25rem $primary-color-dark;
+$box-shadow-hover: 0 .25rem 1rem -.25rem $accent-color-dark;
 
-// MAIN STYLES
+header {
+  z-index: 1;
+  background-color: $primary-color;
+  border-bottom: 1px solid $accent-color;
+}
+
 nav {
-  li {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    padding: 0 1rem;
+    flex-grow: 0;
+    font-size: 1rem;
+    font-weight: normal;
     display: inline;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  li {
+    display: block;
+    padding: 0 .5rem;
+  }
+}
+@media screen and (min-width: 660px) {
+  nav {
+    flex-flow: row;
+
+    li {
+      padding: 0 1rem;
+    }
   }
 }
 
@@ -22,32 +63,62 @@ nav {
   height: auto;
 }
 
-.social {
-  padding-right: 1rem;
-  text-decoration: none;
+.header-content {
+  background: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+  min-height: calc(100vh - 4rem);
+}
 
-  :hover {
-    animation: logo .4s forwards;
+.social {
+  margin: 4rem 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+
+  li {
+    margin: 0 1rem;
+    display: inline;
   }
 
-  &:last-of-type {
-    padding-right: 0;
+  a {
+    padding-right: 1rem;
+    text-decoration: none;
+
+    :hover {
+      animation: logo .4s forwards;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
   }
 }
-.header-rest {
-  background-image: url('../img/Logo_Majestic_przezroczyste.png');
-  background-position: center;
-  background-repeat: no-repeat;
+
+.row {
+  padding: 1rem;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.row-alt {
+  background-color: $accent-color-dark;
 }
 // PROFILE CARDS
 
 .profile {
+  background-color: $primary-color;
   display: flex;
   margin: 1rem;
   padding: 1rem;
   transition: .4s;
   text-align: center;
-  // box-shadow: $box-shadow;
+  border-radius: .5rem;
+  border-bottom: 1px solid $accent-color;
   align-items: center;
   flex-flow: column;
 
@@ -58,7 +129,7 @@ nav {
     padding: .25rem;
     transition: .4s;
     border-radius: 50%;
-    // box-shadow: inset $box-shadow;
+    box-shadow: inset $box-shadow;
     filter: grayscale(1);
     object-fit: cover;
   }
@@ -73,12 +144,13 @@ nav {
 
   &:hover {
     transform: scale(1.05) translateY(-.5rem);
-    // box-shadow: $box-shadow-hover;
+    border-bottom: 1px solid $accent-color-dark;
+    box-shadow: $box-shadow-hover;
 
     img {
       padding: .5rem;
       transform: translateY(.5rem);
-      // box-shadow: inset $box-shadow-hover;
+      box-shadow: inset $box-shadow-hover;
       filter: grayscale(0);
     }
   }
@@ -153,14 +225,16 @@ nav {
     margin-bottom: 1rem;
     padding: .5rem;
     transition: .4s;
-    // box-shadow: $box-shadow;
+    border-bottom: 1px solid $accent-color;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    border-radius: .5rem;
 
     &:hover {
       transform: scale(1.05);
-      // box-shadow: $box-shadow-hover;
+      border-bottom: 1px solid $accent-color-dark;
+      box-shadow: $box-shadow-hover;
     }
 
     a {
@@ -209,7 +283,6 @@ nav {
   }
 }
 // EVENTS END
-
 // MAIN STYLES END
 // ANIMATIONS
 @keyframes logo {
