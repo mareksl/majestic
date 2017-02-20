@@ -1,9 +1,9 @@
 /* TYPOGRAPHY */
-@import url( 'https://fonts.googleapis.com/css?family=Lato|Old+Standard+TT|Lobster');
-$serif: 'Old Standard TT', serif;
-$sans: 'Lato', sans-serif;
+@import url( 'https://fonts.googleapis.com/css?family=Quattrocento|Quattrocento+Sans|Oswald');
+$serif: 'Quattrocento', serif;
+$sans: 'Quattrocento Sans', sans-serif;
 $monospace: 'Courier new', Courier, 'Andale Mono', monospace;
-$display: 'Lobster';
+$display: 'Oswald';
 $hover-shadow: 0 .2rem .2rem rgba($accent-color-light, .5);
 
 html {
@@ -35,7 +35,7 @@ h1 {
 h2 {
 	text-align: center;
 	font-family: $serif;
-	font-size: 10vmin;
+	font-size: 8vmin;
 }
 
 h3 {
