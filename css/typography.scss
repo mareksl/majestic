@@ -1,0 +1,94 @@
+/* TYPOGRAPHY */
+@import url( 'https://fonts.googleapis.com/css?family=Lato|Old+Standard+TT|Lobster');
+$serif: 'Old Standard TT', serif;
+$sans: 'Lato', sans-serif;
+$monospace: 'Courier new', Courier, 'Andale Mono', monospace;
+$display: 'Lobster';
+
+html {
+	font-size: 16px;
+}
+
+body {
+	color: $primary-color-dark;
+	font-family: $sans;
+	font-size: 100%;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $primary-color;
+	font-family: $sans;
+}
+
+h1 {
+	font-size: 3em;
+	font-weight: bold;
+}
+
+h2 {
+	text-align: center;
+	font-family: $display;
+	font-size: 10vmin;
+}
+
+h3 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+h5 {
+	font-size: 1.25em;
+}
+
+h6 {
+	font-size: 1.125em;
+}
+
+p {
+	font-size: 1em;
+}
+
+small {
+	font-size: 0.8em;
+}
+
+a {
+	transition: 0.4s;
+	text-decoration: underline;
+	color: $accent-color-dark;
+
+	&:hover {
+		color: $accent-color;
+		text-shadow: 0 0.2rem 0.2rem rgba($accent-color,.5);
+	}
+
+	&:active {
+		color: $accent-color;
+		text-shadow: none;
+	}
+}
+
+i {
+	font-family: $serif;
+	font-style: italic;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+	font-variant: small-caps;
+}
+/* TYPOGRAPHY END */
