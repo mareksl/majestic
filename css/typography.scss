@@ -4,13 +4,14 @@ $serif: 'Old Standard TT', serif;
 $sans: 'Lato', sans-serif;
 $monospace: 'Courier new', Courier, 'Andale Mono', monospace;
 $display: 'Lobster';
+$hover-shadow: 0 .2rem .2rem rgba($accent-color-light, .5);
 
 html {
 	font-size: 16px;
 }
 
 body {
-	color: $primary-color-dark;
+	color: $primary-color-text;
 	font-family: $sans;
 	font-size: 100%;
 	line-height: 1.5;
@@ -22,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: $primary-color;
+	color: $primary-color-text;
 	font-family: $sans;
 }
 
@@ -33,7 +34,7 @@ h1 {
 
 h2 {
 	text-align: center;
-	font-family: $display;
+	font-family: $serif;
 	font-size: 10vmin;
 }
 
@@ -59,21 +60,21 @@ p {
 }
 
 small {
-	font-size: 0.8em;
+	font-size: .8em;
 }
 
 a {
-	transition: 0.4s;
+	transition: .4s;
 	text-decoration: underline;
-	color: $accent-color-dark;
+	color: $accent-color;
 
 	&:hover {
-		color: $accent-color;
-		text-shadow: 0 0.2rem 0.2rem rgba($accent-color,.5);
+		color: $accent-color-dark;
+		text-shadow: $hover-shadow;
 	}
 
 	&:active {
-		color: $accent-color;
+		color: $accent-color-dark;
 		text-shadow: none;
 	}
 }

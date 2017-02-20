@@ -8,12 +8,6 @@ html {
   height: 100%;
 }
 
-.header-wrap {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -34,21 +28,17 @@ footer {
 
 header {
   position: fixed;
+  top: 0;
   height: 4rem;
 }
 
-.header-rest {
-  margin-top: 4rem;
-  // height: 100vh;
-  height: calc(100vh - 4rem);
-}
 
 footer,
 header {
   width: 100%;
   display: flex;
   padding: 1rem 0;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
