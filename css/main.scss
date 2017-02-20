@@ -10,12 +10,12 @@ $divider-color: #ccc;
 @import 'flex-grid';
 @import 'typography'; // MAIN STYLES
 $box-shadow: 0 .25rem .5rem -.25rem $primary-color-dark;
-$box-shadow-hover: 0 .25rem 1rem -.25rem $accent-color-light;
+$box-shadow-hover: 0 .25rem 1rem -.25rem $accent-color-dark;
 
 header {
   z-index: 1;
   background-color: $primary-color;
-  border-bottom: 1px solid $divider-color;
+  border-bottom: 1px solid $accent-color;
 }
 
 nav {
@@ -70,26 +70,6 @@ nav {
   align-items: center;
   margin-top: 4rem;
   min-height: calc(100vh - 4rem);
-  // z-index: 0;
-  //
-  // &:hover {
-  //   &:before {
-  //     filter: grayscale(0);
-  //   }
-  // }
-  //
-  // &:before {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   z-index: -1;
-  //   background-image: radial-gradient(circle at 0% 0%, $accent-color, $accent-color-dark, $accent-color-light);
-  //   filter: grayscale(.4);
-  // }
 }
 
 .social {
@@ -117,6 +97,14 @@ nav {
   }
 }
 
+.row {
+  padding: 1rem;
+}
+
+.no-padding {
+  padding: 0;
+}
+
 .row-alt {
   background-color: $accent-color-dark;
 }
@@ -129,7 +117,8 @@ nav {
   padding: 1rem;
   transition: .4s;
   text-align: center;
-  box-shadow: $box-shadow;
+  border-radius: .5rem;
+  border-bottom: 1px solid $accent-color;
   align-items: center;
   flex-flow: column;
 
@@ -155,6 +144,7 @@ nav {
 
   &:hover {
     transform: scale(1.05) translateY(-.5rem);
+    border-bottom: 1px solid $accent-color-dark;
     box-shadow: $box-shadow-hover;
 
     img {
@@ -235,14 +225,16 @@ nav {
     margin-bottom: 1rem;
     padding: .5rem;
     transition: .4s;
-    // box-shadow: $box-shadow;
+    border-bottom: 1px solid $accent-color;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    border-radius: .5rem;
 
     &:hover {
       transform: scale(1.05);
-      // box-shadow: $box-shadow-hover;
+      border-bottom: 1px solid $accent-color-dark;
+      box-shadow: $box-shadow-hover;
     }
 
     a {
