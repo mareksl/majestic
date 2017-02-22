@@ -158,7 +158,6 @@ nav {
       transition: .4s;
       animation: logo .4s forwards;
       color: $accent-color-mid;
-
     }
 
     &:last-of-type {
@@ -299,66 +298,54 @@ section.row {
 // EVENTS
 
 .events {
-  margin: 2rem;
+  // max-height: 300px;
+  // overflow-y: auto;
+  margin-bottom: 2rem;
 
   li {
-    display: flex;
-    margin-bottom: 1rem;
     padding: .5rem;
-    transition: .4s;
-    background-color: $primary-color-light;
+    display: flex;
+    flex-flow: column wrap;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
-
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: $box-shadow-hover;
-    }
-
-    a {
-      flex: 1 1 auto;
-    }
-
-    span {
-      margin: 0 .5rem;
-      flex: 0 0 auto;
-    }
-
-    .date {
-      display: block;
-      margin: 0;
-      padding-right: .5em;
-
-      &:after {
-        display: none;
-        content: ' ';
-      }
-
-      &:first-child {
-        border-bottom: 1px solid $accent-color-dark;
-      }
-    }
+    border-bottom: 1px solid #ddd;
+    font-variant: small-caps;
   }
-}
 
-.show-events {
-  display: flex;
-  padding: 1rem;
-  transition: .4s;
-  text-align: center;
-  // box-shadow: $box-shadow;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-
-  &:hover {
-    // box-shadow: $box-shadow-hover;
+  span {
+    margin-right: 1rem;
   }
-}
-@media screen and (min-width: 860px) {
-  .row-events {
+
+  .event-date-full {
+    flex: 0 0 10%;
+    display: flex;
     flex-flow: row;
+  }
+
+  .event-city {
+    flex: 0 0 20%;
+    font-size: 1.2rem;
+  }
+
+  .event-location {
+    flex: 1 0 auto;
+    font-size: 1.2rem;
+    text-align: right;
+    font-weight: 700;
+  }
+}
+@media screen and (min-width: 660px) {
+  .events {
+    li {
+      flex-flow: row wrap;
+    }
+
+    .event-date-full {
+      flex-flow: column;
+    }
+    .event-location {
+      font-weight: normal;
+    }
   }
 }
 // EVENTS END
