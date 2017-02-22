@@ -1,5 +1,5 @@
 /* RESET */
-@import url("https://fonts.googleapis.com/css?family=Eczar|Work+Sans|Oswald");
+@import url("https://fonts.googleapis.com/css?family=Eczar|Work+Sans:400,700");
 a,
 abbr,
 acronym,
@@ -146,12 +146,14 @@ main {
 
 footer {
   flex: 0 0 auto;
-  align-self: flex-end; }
+  align-self: flex-end;
+  padding: 1rem 0; }
 
 header {
   position: fixed;
   top: 0;
-  min-height: 4rem; }
+  min-height: 4rem;
+  padding: 0; }
 
 @media screen and (min-width: 660px) {
   header {
@@ -160,7 +162,6 @@ footer,
 header {
   width: 100%;
   display: flex;
-  padding: 1rem 0;
   justify-content: center;
   align-items: center; }
 
@@ -337,13 +338,12 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
-    width: 3rem;
     height: 4rem;
+    width: 2.5rem;
     cursor: pointer;
     transition: .4s;
     border: 0;
-    background: none;
-    font-size: 1.6rem; }
+    background: none; }
     nav .menu-trigger:hover {
       color: #733236; }
     nav .menu-trigger:focus {
@@ -455,7 +455,8 @@ nav {
   .profile h3 {
     width: 100%;
     padding: 1vh;
-    font-size: 4vmin; }
+    font-size: 5vmin;
+    font-weight: 700; }
     .profile h3 span {
       display: block;
       font-family: "Eczar", serif;
@@ -472,14 +473,13 @@ nav {
       bottom: 0;
       left: 0;
       opacity: 0;
-      color: #fff;
       background-color: rgba(35, 31, 32, 0.5); }
     .profile:hover img {
       filter: blur(5px); }
     .profile:hover figcaption {
       opacity: 1; }
     .profile h3 {
-      background-color: rgba(0, 0, 0, 0.5); } }
+      background-color: #fff; } }
 .video-container {
   position: relative;
   overflow: hidden;
