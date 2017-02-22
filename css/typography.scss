@@ -66,10 +66,10 @@ small {
 a {
 	transition: .4s;
 	text-decoration: underline;
-	color: $accent-color;
+	color: $accent-color-dark;
 
 	&:hover {
-		color: $accent-color-dark;
+		color: $accent-color;
 		text-shadow: $hover-shadow;
 	}
 

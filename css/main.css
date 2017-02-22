@@ -275,9 +275,9 @@ small {
 a {
   transition: .4s;
   text-decoration: underline;
-  color: #ed1c24; }
+  color: #733236; }
   a:hover {
-    color: #733236;
+    color: #ed1c24;
     text-shadow: 0 0.2rem 0.2rem rgba(255, 203, 4, 0.5); }
   a:active {
     color: #733236;
