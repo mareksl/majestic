@@ -2,9 +2,8 @@
 @import url( 'https://fonts.googleapis.com/css?family=Eczar|Work+Sans:400,700');
 $serif: 'Eczar', serif;
 $sans: 'Work Sans', sans-serif;
-$monospace: 'Courier new', Courier, 'Andale Mono', monospace;
-// $display: 'Montserrat';
-$hover-shadow: 0 .2rem .2rem rgba($accent-color-light, .5);
+$monospace: 'Courier new', Courier, 'Andale Mono', monospace; // $display: 'Montserrat';
+$hover-shadow: 0 .2rem .2rem $accent-color-light;
 
 html {
 	font-size: 16px;
@@ -55,8 +54,8 @@ h6 {
 }
 
 p {
-	font-size: 1em;
 	padding-bottom: 2rem;
+	font-size: 1em;
 }
 
 small {

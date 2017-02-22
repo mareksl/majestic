@@ -266,8 +266,8 @@ h6 {
   font-size: 1.125em; }
 
 p {
-  font-size: 1em;
-  padding-bottom: 2rem; }
+  padding-bottom: 2rem;
+  font-size: 1em; }
 
 small {
   font-size: .8em; }
@@ -277,8 +277,8 @@ a {
   text-decoration: underline;
   color: #733236; }
   a:hover {
-    color: #f67414;
-    text-shadow: 0 0.2rem 0.2rem rgba(255, 203, 4, 0.5); }
+    color: #853109;
+    text-shadow: 0 0.2rem 0.2rem #ffcb04; }
   a:active {
     color: #733236;
     text-shadow: none; }
@@ -321,7 +321,7 @@ nav {
     font-size: 1rem;
     transition: .4s; }
     nav h1:hover {
-      filter: drop-shadow(0 0.2rem 0.2rem rgba(255, 203, 4, 0.5));
+      filter: drop-shadow(0 0.2rem 0.2rem #ffcb04);
       animation: logo .4s forwards; }
   nav ul {
     display: flex;
@@ -329,7 +329,8 @@ nav {
     transition: .4s;
     opacity: 0;
     flex-flow: column;
-    justify-content: space-between; }
+    justify-content: space-between;
+    overflow: hidden; }
   nav li {
     display: block;
     text-align: center;
@@ -346,7 +347,8 @@ nav {
     border: 0;
     background: none; }
     nav .menu-trigger:hover {
-      color: #733236; }
+      color: #733236;
+      filter: drop-shadow(0 0.1rem 0.1rem #ffcb04); }
     nav .menu-trigger:focus {
       transform: rotate(90deg); }
       nav .menu-trigger:focus ~ ul {
@@ -398,7 +400,7 @@ nav {
     .social a :hover {
       transition: .4s;
       animation: logo .4s forwards;
-      color: #ffcb04; }
+      color: #F67414; }
     .social a:last-of-type {
       padding-right: 0; }
 
@@ -519,7 +521,7 @@ section.row {
         display: none;
         content: ' '; }
       .events li .date:first-child {
-        border-bottom: 1px solid #ccc; }
+        border-bottom: 1px solid #733236; }
 
 .show-events {
   display: flex;
