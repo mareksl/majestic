@@ -306,6 +306,7 @@ header {
 nav {
   display: flex;
   width: 100%;
+  min-height: 4rem;
   height: 100%;
   font-size: 1.2em;
   flex-flow: column wrap;
@@ -401,7 +402,7 @@ nav {
     .social a:last-of-type {
       padding-right: 0; }
 
-.row {
+section.row {
   padding: 1rem; }
 
 .anchor {
