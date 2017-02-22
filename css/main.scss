@@ -1,11 +1,11 @@
 $primary-color-dark: #231f20;
-$primary-color: #f67414;
+$primary-color: #853109;
 $primary-color-light: #fff;
 $primary-color-text: #231f20;
 $accent-color: #ed1c24;
 $accent-color-dark: #733236;
 $accent-color-light: #ffcb04;
-$divider-color: #ccc; // 733236 b79100
+$accent-color-mid: #F67414; // 733236 b79100
 @import 'reset';
 @import 'flex-grid';
 @import 'typography'; // MAIN STYLES
@@ -57,6 +57,7 @@ nav {
     opacity: 0;
     flex-flow: column;
     justify-content: space-between;
+    overflow: hidden;
   }
 
   li {
@@ -79,6 +80,7 @@ nav {
 
     &:hover {
       color: $accent-color-dark;
+      filter: drop-shadow(0 .1rem .1rem $accent-color-light);
     }
 
     &:focus {
@@ -155,7 +157,8 @@ nav {
     :hover {
       transition: .4s;
       animation: logo .4s forwards;
-      color: $accent-color-light;
+      color: $accent-color-mid;
+
     }
 
     &:last-of-type {
@@ -333,7 +336,7 @@ section.row {
       }
 
       &:first-child {
-        border-bottom: 1px solid $divider-color;
+        border-bottom: 1px solid $accent-color-dark;
       }
     }
   }
