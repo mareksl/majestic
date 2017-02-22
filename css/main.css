@@ -145,6 +145,9 @@ main {
   justify-content: space-around; }
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 0 0 auto;
   align-self: flex-end;
   padding: 1rem 0; }
@@ -160,10 +163,7 @@ header {
     height: 4rem; } }
 footer,
 header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  width: 100%; }
 
 .row {
   overflow: hidden;
@@ -297,7 +297,7 @@ strong {
 /* TYPOGRAPHY END */
 header {
   z-index: 1;
-  transition: .4s;
+  transition: .4s ease;
   background-color: #fff; }
 
 .logo {
@@ -306,21 +306,22 @@ header {
 nav {
   display: flex;
   width: 100%;
+  height: 100%;
   font-size: 1.2em;
   flex-flow: column wrap;
   justify-content: space-between;
   align-items: center; }
   nav a {
-    padding: 0;
+    display: block;
+    padding: .5rem;
     text-decoration: none;
     color: #231f20; }
   nav h1 {
-    display: inline;
-    transition: .4s;
-    font-size: 1em;
-    font-weight: normal; }
+    font-size: 1rem;
+    transition: .4s; }
     nav h1:hover {
-      filter: drop-shadow(0 0.2rem 0.2rem rgba(255, 203, 4, 0.5)); }
+      filter: drop-shadow(0 0.2rem 0.2rem rgba(255, 203, 4, 0.5));
+      animation: logo .4s forwards; }
   nav ul {
     display: flex;
     max-height: 0;
@@ -330,7 +331,6 @@ nav {
     justify-content: space-between; }
   nav li {
     display: block;
-    padding: .5rem;
     text-align: center;
     white-space: nowrap;
     border-top: 1px solid #231f20; }
@@ -355,15 +355,13 @@ nav {
 @media screen and (min-width: 660px) {
   nav {
     flex-flow: row; }
-    nav h1 {
-      padding: 0 1rem;
-      font-size: 1.2em; }
     nav ul {
       max-height: initial;
       opacity: 1;
       flex-flow: row nowrap; }
+    nav a {
+      padding: 0 1rem; }
     nav li {
-      padding: 0 1rem;
       border-top: 0;
       border-right: 1px solid #231f20; }
       nav li:last-child {
