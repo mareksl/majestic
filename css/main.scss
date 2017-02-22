@@ -10,6 +10,7 @@ $divider-color: #ccc; // 733236 b79100
 @import 'flex-grid';
 @import 'typography'; // MAIN STYLES
 $box-shadow: 0 .25rem .5rem -.25rem $primary-color-dark;
+$box-shadow-light: 0 .5rem .5rem -.25rem $primary-color-dark;
 $box-shadow-hover: 0 .25rem 1rem -.25rem $accent-color-dark;
 
 header {
@@ -68,13 +69,12 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
-    width: 3rem;
     height: 4rem;
+    width: 2.5rem;
     cursor: pointer;
     transition: .4s;
     border: 0;
     background: none;
-    font-size: 1.6rem;
 
     &:hover {
       color: $accent-color-dark;
@@ -219,7 +219,6 @@ nav {
     padding: 1rem 0;
     transition: .4s;
     text-align: center;
-    // background-color: $primary-color-dark;
     color: $primary-color-dark;
     align-items: center;
     justify-content: center;
@@ -235,7 +234,9 @@ nav {
   h3 {
     width: 100%;
     padding: 1vh;
-    font-size: 4vmin;
+    // font-family: $display;
+    font-size: 5vmin;
+    font-weight: 700;
 
     span {
       display: block;
@@ -256,7 +257,6 @@ nav {
       bottom: 0;
       left: 0;
       opacity: 0;
-      color: $primary-color-light;
       background-color: rgba($primary-color-dark, .5);
     }
 
@@ -271,7 +271,7 @@ nav {
     }
 
     h3 {
-      background-color: rgba(0, 0, 0, .5);
+      background-color: $primary-color-light;
     }
   }
 }

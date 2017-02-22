@@ -1,9 +1,9 @@
 /* TYPOGRAPHY */
-@import url( 'https://fonts.googleapis.com/css?family=Eczar|Work+Sans|Oswald');
+@import url( 'https://fonts.googleapis.com/css?family=Eczar|Work+Sans:400,700');
 $serif: 'Eczar', serif;
 $sans: 'Work Sans', sans-serif;
 $monospace: 'Courier new', Courier, 'Andale Mono', monospace;
-$display: 'Oswald';
+// $display: 'Montserrat';
 $hover-shadow: 0 .2rem .2rem rgba($accent-color-light, .5);
 
 html {
