@@ -275,7 +275,7 @@ small {
 a {
   transition: .4s;
   text-decoration: underline;
-  color: #231f20; }
+  color: #733236; }
   a:hover {
     color: #853109;
     text-shadow: 0 0.2rem 0.2rem #ffcb04; }
@@ -501,7 +501,7 @@ section.row {
     margin-bottom: 1rem;
     padding: .5rem;
     transition: .4s;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #fff;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap; }

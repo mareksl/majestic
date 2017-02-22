@@ -306,7 +306,7 @@ section.row {
     margin-bottom: 1rem;
     padding: .5rem;
     transition: .4s;
-    background-color: rgba($primary-color-light, .5);
+    background-color: $primary-color-light;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
