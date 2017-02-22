@@ -26,6 +26,7 @@ header {
 nav {
   display: flex;
   width: 100%;
+  min-height: 4rem;
   height: 100%;
   font-size: 1.2em;
   flex-flow: column wrap;
@@ -163,7 +164,7 @@ nav {
   }
 }
 
-.row {
+section.row {
   padding: 1rem;
 }
 
