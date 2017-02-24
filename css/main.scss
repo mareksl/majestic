@@ -5,7 +5,7 @@ $primary-color-text: #231f20;
 $accent-color: #ed1c24;
 $accent-color-dark: #733236;
 $accent-color-light: #ffcb04;
-$accent-color-mid: #F67414; // 733236 b79100
+$accent-color-mid: #f67414; // 733236 b79100
 @import 'reset';
 @import 'flex-grid';
 @import 'typography'; // MAIN STYLES
@@ -166,17 +166,8 @@ nav {
   }
 }
 
-section.row {
+.row-padded {
   padding: 1rem;
-}
-
-.anchor {
-  margin-top: -4rem;
-  padding-top: 5rem;
-}
-
-.no-padding {
-  padding: 0;
 }
 
 .row-alt {
@@ -310,6 +301,12 @@ section.row {
     align-items: center;
     border-bottom: 1px solid #ddd;
     font-variant: small-caps;
+    transition: .4s;
+
+    &:hover {
+      box-shadow: 0 16px 8px -16px rgba($primary-color-dark, .5);
+      transform: scale(1.01) translateY(.2rem);
+    }
   }
 
   span {
@@ -343,6 +340,7 @@ section.row {
     .event-date-full {
       flex-flow: column;
     }
+
     .event-location {
       font-weight: normal;
     }

@@ -266,7 +266,7 @@ h6 {
   font-size: 1.125em; }
 
 p {
-  padding: 1em 0;
+  padding: 2em 0;
   font-size: 1em; }
 
 small {
@@ -274,11 +274,11 @@ small {
 
 a {
   transition: .4s;
-  text-decoration: underline;
+  text-decoration: none;
   color: #733236; }
   a:hover {
-    color: #853109;
-    text-shadow: 0 0.2rem 0.2rem #ffcb04; }
+    text-decoration: underline;
+    color: #853109; }
   a:active {
     color: #733236;
     text-shadow: none; }
@@ -400,19 +400,12 @@ nav {
     .social a :hover {
       transition: .4s;
       animation: logo .4s forwards;
-      color: #F67414; }
+      color: #f67414; }
     .social a:last-of-type {
       padding-right: 0; }
 
-section.row {
+.row-padded {
   padding: 1rem; }
-
-.anchor {
-  margin-top: -4rem;
-  padding-top: 5rem; }
-
-.no-padding {
-  padding: 0; }
 
 .row-alt {
   position: relative;
@@ -503,7 +496,11 @@ section.row {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
-    font-variant: small-caps; }
+    font-variant: small-caps;
+    transition: .4s; }
+    .events li:hover {
+      box-shadow: 0 16px 8px -16px rgba(35, 31, 32, 0.5);
+      transform: scale(1.01) translateY(0.2rem); }
   .events span {
     margin-right: 1rem; }
   .events .event-date-full {
