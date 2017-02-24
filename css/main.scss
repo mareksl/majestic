@@ -20,7 +20,8 @@ header {
 }
 
 .logo {
-  height: 3rem;
+  padding: .4rem;
+  max-height: 100%;
 }
 
 nav {
@@ -35,14 +36,16 @@ nav {
 
   a {
     display: block;
-    padding: .5rem;
     text-decoration: none;
     color: $primary-color-dark;
   }
 
   h1 {
-    // font-size: 1rem;
     transition: .4s;
+    height: 4rem;
+    padding: .5rem;
+    display: block;
+    line-height: 0;
 
     &:hover {
       filter: drop-shadow($hover-shadow);
@@ -58,6 +61,10 @@ nav {
     flex-flow: column;
     justify-content: space-between;
     overflow: hidden;
+
+    a {
+      padding: .5rem;
+    }
   }
 
   li {
@@ -101,10 +108,10 @@ nav {
       max-height: initial;
       opacity: 1;
       flex-flow: row nowrap;
-    }
 
-    a {
-      padding: 0 1rem;
+      a {
+        padding: 0 1rem;
+      }
     }
 
     li {
@@ -149,7 +156,6 @@ nav {
   }
 
   a {
-    padding-right: 1rem;
     text-decoration: none;
     color: $primary-color-dark;
     font-size: 10vh;
@@ -157,7 +163,7 @@ nav {
     :hover {
       transition: .4s;
       animation: logo .4s forwards;
-      color: $accent-color-mid;
+      color: $accent-color-light;
     }
 
     &:last-of-type {
@@ -185,8 +191,8 @@ nav {
     bottom: 0;
     left: 0;
     content: '';
-    box-shadow: inset 0 24px 16px -16px rgba($primary-color-dark, .2), inset 0 -24px 16px -16px rgba($primary-color-dark, .2);
-    background-image: linear-gradient(30deg, rgba($accent-color, .8), rgba($accent-color-light, .8));
+    box-shadow: inset 0 12px 8px -8px rgba($primary-color-dark, .2), inset 0 -12px 8px -8px rgba($primary-color-dark, .2);
+    // background-image: linear-gradient(30deg, rgba($accent-color, .8), rgba($accent-color-light, .8));
   }
 }
 // PROFILE CARDS
