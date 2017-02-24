@@ -254,7 +254,8 @@ h2 {
 
 h3 {
   font-size: 1.5em;
-  font-weight: bold; }
+  font-weight: bold;
+  text-align: center; }
 
 h4 {
   font-size: 1.5em; }
@@ -267,7 +268,10 @@ h6 {
 
 p {
   padding: 2em 0;
-  font-size: 1em; }
+  font-size: 1em;
+  max-width: 30em;
+  margin: auto;
+  text-align: center; }
 
 small {
   font-size: .8em; }
@@ -301,7 +305,7 @@ header {
   background-color: #fff; }
 
 .logo {
-  height: 2rem; }
+  height: 3rem; }
 
 nav {
   display: flex;
@@ -318,7 +322,6 @@ nav {
     text-decoration: none;
     color: #231f20; }
   nav h1 {
-    font-size: 1rem;
     transition: .4s; }
     nav h1:hover {
       filter: drop-shadow(0 0.2rem 0.2rem #ffcb04);
@@ -421,6 +424,7 @@ nav {
     bottom: 0;
     left: 0;
     content: '';
+    box-shadow: inset 0 24px 16px -16px rgba(35, 31, 32, 0.2), inset 0 -24px 16px -16px rgba(35, 31, 32, 0.2);
     background-image: linear-gradient(30deg, rgba(237, 28, 36, 0.8), rgba(255, 203, 4, 0.8)); }
 
 .gallery-grid {

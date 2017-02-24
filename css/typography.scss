@@ -39,6 +39,7 @@ h2 {
 h3 {
 	font-size: 1.5em;
 	font-weight: bold;
+	text-align: center;
 }
 
 h4 {
@@ -56,6 +57,9 @@ h6 {
 p {
 	padding: 2em 0;
 	font-size: 1em;
+	max-width: 30em;
+	margin: auto;
+	text-align: center;
 }
 
 small {
