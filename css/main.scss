@@ -22,6 +22,11 @@ header {
 .logo {
   padding: .4rem;
   max-height: 100%;
+  width: auto;
+}
+
+.logo-path {
+  transition: .4s;
 }
 
 nav {
@@ -48,8 +53,15 @@ nav {
     line-height: 0;
 
     &:hover {
-      filter: drop-shadow($hover-shadow);
-      animation: logo .4s forwards;
+      filter: drop-shadow($hover-shadow-dark);
+
+      .logo-path {
+        transform: translateX(2px) translateY(2px);
+      }
+
+      .logo-outline {
+        fill: url('#hover_gradient');
+      }
     }
   }
 
@@ -86,8 +98,7 @@ nav {
     background: none;
 
     &:hover {
-      color: $accent-color-dark;
-      filter: drop-shadow(0 .1rem .1rem $accent-color-light);
+      fill: $accent-color;
     }
 
     &:focus {
@@ -355,22 +366,3 @@ nav {
 }
 // EVENTS END
 // MAIN STYLES END
-// ANIMATIONS
-@keyframes logo {
-  0% {
-    transform: rotateZ(0deg) scale(1);
-  }
-
-  33% {
-    transform: rotateZ(15deg);
-  }
-
-  66% {
-    transform: rotateZ(-15deg);
-  }
-
-  100% {
-    transform: rotateZ(0deg) scale(1.2);
-  }
-}
-// ANIMATIONS END
