@@ -469,7 +469,7 @@ nav {
     .profile h3 span {
       display: block;
       font-family: "Poiret One", serif;
-      font-size: 4vmin;
+      font-size: 5vmin;
       font-weight: normal; }
 
 @media screen and (min-width: 660px) {
@@ -541,6 +541,8 @@ nav {
 .contact {
   line-height: 2;
   text-align: center; }
+  .contact .fa {
+    margin-right: 1rem; }
   .contact p {
     border-bottom: 1px solid #ddd;
     transition: .4s; }
