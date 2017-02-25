@@ -251,7 +251,7 @@ nav {
     span {
       display: block;
       font-family: $serif;
-      font-size: 4vmin;
+      font-size: 5vmin;
       font-weight: normal;
     }
   }
@@ -368,7 +368,9 @@ nav {
 .contact {
   line-height: 2;
   text-align: center;
-
+.fa {
+  margin-right: 1rem;
+}
   p {
     border-bottom: 1px solid #ddd;
     transition: .4s;
