@@ -1,7 +1,7 @@
 /* TYPOGRAPHY */
-@import url( 'https://fonts.googleapis.com/css?family=Eczar|Work+Sans:400,700');
-$serif: 'Eczar', serif;
-$sans: 'Work Sans', sans-serif;
+@import url( 'https://fonts.googleapis.com/css?family=Poiret+One|Lato:300,400');
+$serif: 'Poiret One', serif;
+$sans: 'Lato', sans-serif;
 $monospace: 'Courier new', Courier, 'Andale Mono', monospace; // $display: 'Montserrat';
 $hover-shadow: 0 .2rem .2rem $accent-color-light;
 $hover-shadow-dark: 0 .2rem .1rem $primary-color-dark;
@@ -13,6 +13,7 @@ html {
 body {
 	color: $primary-color-text;
 	font-family: $sans;
+	font-weight: 300;
 	font-size: 100%;
 	line-height: 1.5;
 }
@@ -39,7 +40,7 @@ h2 {
 
 h3 {
 	font-size: 1.5em;
-	font-weight: bold;
+	font-weight: 400;
 	text-align: center;
 }
 
