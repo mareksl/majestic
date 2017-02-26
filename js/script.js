@@ -31,31 +31,13 @@ document.addEventListener('DOMContentLoaded', function navScroll() {
       var hash = this.hash.slice(1);
       var scrollElement = document.getElementById(hash);
       // Scroll to element
-      smoothScroll(scrollElement);
-
-      function smoothScroll(e) {
-        var posInit = document.documentElement.scrollTop;
-        var posGoal = e.offsetTop;
-        var posDist = posGoal - posInit;
-        var absDist = Math.abs(posDist);
-        var speed = absDist;
-        var step = posInit + (posDist / absDist);
-        var scrollUnit = 1;
-        var time = 1;
-        for (var i = 0; i <= absDist; i++) {
-          setTimeout(scrollWindow, time);
-          time = easeOutInQuad(i, absDist) * speed;
-          console.log(time);
-        }
-
-        function scrollWindow() {
-          window.scrollTo(0, step);
-          posDist > 0 ? step++ : step--;
-        }
-      }
-
+      Velocity(scrollElement, 'scroll', {
+          duration: 1000,
+          easing: 'easeInOutQuad',
+          offset: -64
+      });
       // Add hash (#) to URL when done scrolling (default click behavior)
-      // window.location.hash = hash;
+      window.location.hash = hash;
     }
   }
   for (var i = 0; i < navLinks.length; i++) {
