@@ -473,6 +473,9 @@ nav {
       font-weight: normal; }
 
 @media screen and (min-width: 660px) {
+  .gallery-grid:last-child {
+    margin-bottom: 4rem; }
+
   .profile {
     overflow: hidden; }
     .profile figcaption {
