@@ -257,6 +257,12 @@ nav {
   }
 }
 @media screen and (min-width: 660px) {
+  .gallery-grid {
+    &:last-child {
+      margin-bottom: 4rem;
+    }
+  }
+
   .profile {
     overflow: hidden;
 
@@ -368,9 +374,11 @@ nav {
 .contact {
   line-height: 2;
   text-align: center;
-.fa {
-  margin-right: 1rem;
-}
+
+  .fa {
+    margin-right: 1rem;
+  }
+
   p {
     border-bottom: 1px solid #ddd;
     transition: .4s;
