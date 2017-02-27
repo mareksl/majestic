@@ -9,7 +9,7 @@ $accent-color-mid: #f67414; // 733236 b79100
 @import 'reset';
 @import 'flex-grid';
 @import 'typography'; // MAIN STYLES
-$box-shadow: 0 .25rem .5rem -.25rem $primary-color-dark;
+$box-shadow: 0 1rem .5rem -1rem rgba($primary-color-dark, .5);
 $box-shadow-light: 0 .5rem .5rem -.25rem $primary-color-dark;
 $box-shadow-hover: 0 .25rem 1rem -.25rem $accent-color-dark;
 
@@ -20,7 +20,13 @@ header {
 }
 
 .logo {
-  height: 3rem;
+  padding: .4rem;
+  max-height: 100%;
+  width: auto;
+}
+
+.logo-path {
+  transition: .4s;
 }
 
 nav {
@@ -35,18 +41,27 @@ nav {
 
   a {
     display: block;
-    padding: .5rem;
     text-decoration: none;
     color: $primary-color-dark;
   }
 
   h1 {
-    // font-size: 1rem;
     transition: .4s;
+    height: 4rem;
+    padding: .5rem;
+    display: block;
+    line-height: 0;
 
     &:hover {
-      filter: drop-shadow($hover-shadow);
-      animation: logo .4s forwards;
+      filter: drop-shadow($hover-shadow-dark);
+
+      .logo-path {
+        transform: translateX(2px) translateY(2px);
+      }
+
+      .logo-outline {
+        fill: url('#hover_gradient');
+      }
     }
   }
 
@@ -58,6 +73,10 @@ nav {
     flex-flow: column;
     justify-content: space-between;
     overflow: hidden;
+
+    a {
+      padding: .5rem;
+    }
   }
 
   li {
@@ -79,8 +98,7 @@ nav {
     background: none;
 
     &:hover {
-      color: $accent-color-dark;
-      filter: drop-shadow(0 .1rem .1rem $accent-color-light);
+      fill: $accent-color;
     }
 
     &:focus {
@@ -101,10 +119,10 @@ nav {
       max-height: initial;
       opacity: 1;
       flex-flow: row nowrap;
-    }
 
-    a {
-      padding: 0 1rem;
+      a {
+        padding: 0 1rem;
+      }
     }
 
     li {
@@ -149,7 +167,6 @@ nav {
   }
 
   a {
-    padding-right: 1rem;
     text-decoration: none;
     color: $primary-color-dark;
     font-size: 10vh;
@@ -157,7 +174,7 @@ nav {
     :hover {
       transition: .4s;
       animation: logo .4s forwards;
-      color: $accent-color-mid;
+      color: $accent-color-light;
     }
 
     &:last-of-type {
@@ -185,7 +202,7 @@ nav {
     bottom: 0;
     left: 0;
     content: '';
-    box-shadow: inset 0 24px 16px -16px rgba($primary-color-dark, .2), inset 0 -24px 16px -16px rgba($primary-color-dark, .2);
+    box-shadow: inset 0 12px 8px -8px rgba($primary-color-dark, .2), inset 0 -12px 8px -8px rgba($primary-color-dark, .2);
     background-image: linear-gradient(30deg, rgba($accent-color, .8), rgba($accent-color-light, .8));
   }
 }
@@ -234,12 +251,18 @@ nav {
     span {
       display: block;
       font-family: $serif;
-      font-size: 4vmin;
+      font-size: 5vmin;
       font-weight: normal;
     }
   }
 }
 @media screen and (min-width: 660px) {
+  .gallery-grid {
+    &:last-child {
+      margin-bottom: 4rem;
+    }
+  }
+
   .profile {
     overflow: hidden;
 
@@ -305,7 +328,7 @@ nav {
     transition: .4s;
 
     &:hover {
-      box-shadow: 0 16px 8px -16px rgba($primary-color-dark, .5);
+      box-shadow: $box-shadow;
       transform: scale(1.01) translateY(.2rem);
     }
   }
@@ -329,7 +352,7 @@ nav {
     flex: 1 0 auto;
     font-size: 1.2rem;
     text-align: right;
-    font-weight: 700;
+    font-weight: 400;
   }
 }
 @media screen and (min-width: 660px) {
@@ -347,24 +370,24 @@ nav {
     }
   }
 }
-// EVENTS END
-// MAIN STYLES END
-// ANIMATIONS
-@keyframes logo {
-  0% {
-    transform: rotateZ(0deg) scale(1);
+
+.contact {
+  line-height: 2;
+  text-align: center;
+
+  .fa {
+    margin-right: 1rem;
   }
 
-  33% {
-    transform: rotateZ(15deg);
-  }
+  p {
+    border-bottom: 1px solid #ddd;
+    transition: .4s;
 
-  66% {
-    transform: rotateZ(-15deg);
-  }
-
-  100% {
-    transform: rotateZ(0deg) scale(1.2);
+    &:hover {
+      box-shadow: $box-shadow;
+      transform: scale(1.01) translateY(.2rem);
+    }
   }
 }
-// ANIMATIONS END
+// EVENTS END
+// MAIN STYLES END
