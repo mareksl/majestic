@@ -269,7 +269,7 @@ h6 {
 p {
   padding: 2em 0;
   font-size: 1.1em;
-  max-width: 32em;
+  max-width: 32rem;
   margin: auto;
   text-align: center; }
 
@@ -396,6 +396,17 @@ nav {
   min-height: calc(100vh - 4rem);
   margin-top: 4rem;
   align-items: center; }
+  .header-content svg {
+    transition: .4s;
+    overflow: visible; }
+    .header-content svg .sun-outer {
+      transform-origin: center;
+      transition: .4s; }
+    .header-content svg:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0.2rem 0.1rem #231f20); }
+      .header-content svg:hover .sun-outer {
+        transform: scale(1.1) rotate(-5deg); }
 
 .social {
   display: flex;
@@ -414,7 +425,8 @@ nav {
     .social a :hover {
       transition: .4s;
       animation: logo .4s forwards;
-      color: #ffcb04; }
+      color: #ffcb04;
+      filter: drop-shadow(0 0.2rem 0.1rem #231f20); }
     .social a:last-of-type {
       padding-right: 0; }
 
