@@ -1,15 +1,17 @@
 'use strict';
-
-// Parallax
-function $$(selector, context) {
-  context = context || document;
-  var elements = context.querySelectorAll(selector);
-  return Array.prototype.slice.call(elements);
+var $ = function ( elem ) {
+  return document.querySelectorAll( elem );
 }
+// Parallax
+// function $$(selector, context) {
+//   context = context || document;
+//   var elements = context.querySelectorAll(selector);
+//   return Array.prototype.slice.call(elements);
+// }
 
 document.addEventListener("scroll", function () {
-  var scrolledHeight = document.documentElement.scrollTop;
-  $$(".row-alt").forEach(function (el, index, array) {
+  var scrolledHeight = window.pageYOffset || document.documentElement.scrollTop;
+  $(".row-alt").forEach(function (el) {
     if (scrolledHeight <= el.offsetTop + el.offsetHeight) {
       el.style.backgroundPositionY = ((scrolledHeight - el.offsetTop) / -2) - (el.offsetHeight / 2) + "px";
     } else {
@@ -21,15 +23,15 @@ document.addEventListener("scroll", function () {
 // Smooth scroll
 document.addEventListener('DOMContentLoaded', function navScroll() {
   // Get all navigation links
-  var navLinks = document.querySelectorAll('nav a');
+  var navLinks = $('nav a');
 
   function scrollTo(event) {
     if (this.hash !== '') {
       // Prevent default anchor click behavior
       event.preventDefault();
       // Store hash and find DOMElement
-      var hash = this.hash.slice(1);
-      var scrollElement = document.getElementById(hash);
+      var hash = this.hash;
+      var scrollElement = $(hash);
       // Scroll to element
       Velocity(scrollElement, 'scroll', {
           duration: 1000,
