@@ -317,7 +317,7 @@ nav {
 .video-gallery {
   display: flex;
   flex-flow: column;
-justify-content: space-around;
+  justify-content: space-around;
 }
 
 .video {
@@ -337,6 +337,8 @@ justify-content: space-around;
   padding-bottom: 56.25%;
   cursor: pointer;
   background: $primary-color-dark;
+  border: .1rem solid $primary-color-dark;
+  box-shadow: $box-shadow;
 
   img {
     position: absolute;

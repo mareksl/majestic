@@ -522,7 +522,9 @@ nav {
   height: 0;
   padding-bottom: 56.25%;
   cursor: pointer;
-  background: #231f20; }
+  background: #231f20;
+  border: 0.1rem solid #231f20;
+  box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
   .youtube img {
     position: absolute;
     width: 100%;
