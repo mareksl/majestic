@@ -151,6 +151,25 @@ nav {
   min-height: calc(100vh - 4rem);
   margin-top: 4rem;
   align-items: center;
+
+  svg {
+    transition: .4s;
+    overflow: visible;
+
+    .sun-outer {
+      transform-origin: center;
+      transition: .4s;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      filter: drop-shadow($hover-shadow-dark);
+
+      .sun-outer {
+        transform: scale(1.1) rotate(-5deg);
+      }
+    }
+  }
 }
 
 .social {
@@ -175,6 +194,7 @@ nav {
       transition: .4s;
       animation: logo .4s forwards;
       color: $accent-color-light;
+      filter: drop-shadow($hover-shadow-dark);
     }
 
     &:last-of-type {
@@ -187,7 +207,7 @@ nav {
   padding: 1rem;
 }
 
-.row-alt {
+.row-parallax {
   position: relative;
   height: 50vh;
   background-repeat: no-repeat;
@@ -294,12 +314,55 @@ nav {
 // PROFILE CARDS END
 // VIDEO
 
-.video-container {
+.video-gallery {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.video {
+  flex: 0 0 50%;
+  padding: 1vh;
+}
+@media screen and (min-width: 660px) {
+  .video-gallery {
+    flex-flow: row wrap;
+  }
+}
+
+.youtube {
   position: relative;
   overflow: hidden;
   height: 0;
-  padding-top: 30px;
   padding-bottom: 56.25%;
+  cursor: pointer;
+  background: $primary-color-dark;
+  border: .1rem solid $primary-color-dark;
+  box-shadow: $box-shadow;
+
+  img {
+    position: absolute;
+    width: 100%;
+    top: -16.84%;
+    left: 0;
+    opacity: .7;
+  }
+
+  .fa {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transition: .4s;
+    color: $primary-color-light;
+  }
+
+  &:hover {
+    .fa {
+      color: $accent-color-light;
+    }
+  }
 
   iframe {
     position: absolute;
