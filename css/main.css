@@ -300,14 +300,14 @@ strong {
 
 /* TYPOGRAPHY END */
 header {
-  z-index: 1;
+  z-index: 2;
   transition: .4s ease;
   background-color: #fff; }
 
 .logo {
-  padding: .4rem;
+  width: auto;
   max-height: 100%;
-  width: auto; }
+  padding: .4rem; }
 
 .logo-path {
   transition: .4s; }
@@ -315,8 +315,8 @@ header {
 nav {
   display: flex;
   width: 100%;
-  min-height: 4rem;
   height: 100%;
+  min-height: 4rem;
   font-size: 1.2em;
   flex-flow: column wrap;
   justify-content: space-between;
@@ -326,10 +326,10 @@ nav {
     text-decoration: none;
     color: #231f20; }
   nav h1 {
-    transition: .4s;
+    display: block;
     height: 4rem;
     padding: .5rem;
-    display: block;
+    transition: .4s;
     line-height: 0; }
     nav h1:hover {
       filter: drop-shadow(0 0.2rem 0.1rem #231f20); }
@@ -339,12 +339,12 @@ nav {
         fill: url("#hover_gradient"); }
   nav ul {
     display: flex;
+    overflow: hidden;
     max-height: 0;
     transition: .4s;
     opacity: 0;
     flex-flow: column;
-    justify-content: space-between;
-    overflow: hidden; }
+    justify-content: space-between; }
     nav ul a {
       padding: .5rem; }
   nav li {
@@ -356,8 +356,8 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
-    height: 4rem;
     width: 2.5rem;
+    height: 4rem;
     cursor: pointer;
     transition: .4s;
     border: 0;
@@ -397,11 +397,11 @@ nav {
   margin-top: 4rem;
   align-items: center; }
   .header-content svg {
-    transition: .4s;
-    overflow: visible; }
+    overflow: visible;
+    transition: .4s; }
     .header-content svg .sun-outer {
-      transform-origin: center;
-      transition: .4s; }
+      transition: .4s;
+      transform-origin: center; }
     .header-content svg:hover {
       transform: scale(1.1);
       filter: drop-shadow(0 0.2rem 0.1rem #231f20); }
@@ -447,8 +447,8 @@ nav {
     bottom: 0;
     left: 0;
     content: '';
-    box-shadow: inset 0 12px 8px -8px rgba(35, 31, 32, 0.2), inset 0 -12px 8px -8px rgba(35, 31, 32, 0.2);
-    background-image: linear-gradient(30deg, rgba(237, 28, 36, 0.8), rgba(255, 203, 4, 0.8)); }
+    background-image: linear-gradient(30deg, rgba(237, 28, 36, 0.8), rgba(255, 203, 4, 0.8));
+    box-shadow: inset 0 12px 8px -8px rgba(35, 31, 32, 0.2), inset 0 -12px 8px -8px rgba(35, 31, 32, 0.2); }
 
 .gallery-grid {
   flex-flow: row; }
@@ -510,8 +510,22 @@ nav {
   justify-content: space-around; }
 
 .video {
-  flex: 0 0 50%;
-  padding: 1vh; }
+  margin: 1rem 0;
+  padding: .0625rem;
+  border-radius: .4rem;
+  background-image: linear-gradient(30deg, rgba(237, 28, 36, 0.8), rgba(255, 203, 4, 0.8));
+  box-shadow: 0 0.25rem 0.5rem -0.25rem #231f20;
+  flex: 0 1 45%; }
+  .video .video-title {
+    display: block;
+    overflow: hidden;
+    padding: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: .4rem .4rem 0 0;
+    background-color: #fff;
+    font-size: 1.4em; }
 
 @media screen and (min-width: 660px) {
   .video-gallery {
@@ -522,22 +536,23 @@ nav {
   height: 0;
   padding-bottom: 56.25%;
   cursor: pointer;
-  background: #231f20;
   border: 0.1rem solid #231f20;
+  border-radius: 0 0 .4rem .4rem;
+  background: #231f20;
   box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
   .youtube img {
     position: absolute;
-    width: 100%;
     top: -16.84%;
     left: 0;
+    width: 100%;
     opacity: .7; }
   .youtube .fa {
     position: absolute;
     z-index: 1;
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%, -50%, 0);
     transition: .4s;
+    transform: translate3d(-50%, -50%, 0);
     color: #fff; }
   .youtube:hover .fa {
     color: #ffcb04; }
@@ -551,31 +566,31 @@ nav {
 .events {
   margin-bottom: 2rem; }
   .events li {
-    padding: .5rem;
     display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-items: center;
+    padding: .5rem;
+    transition: .4s;
     border-bottom: 1px solid #ddd;
     font-variant: small-caps;
-    transition: .4s; }
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center; }
     .events li:hover {
-      box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5);
-      transform: scale(1.01) translateY(0.2rem); }
+      transform: scale(1.01) translateY(0.2rem);
+      box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
   .events span {
     margin-right: 1rem; }
   .events .event-date-full {
-    flex: 0 0 10%;
     display: flex;
+    flex: 0 0 10%;
     flex-flow: row; }
   .events .event-city {
-    flex: 0 0 20%;
-    font-size: 1.2rem; }
-  .events .event-location {
-    flex: 1 0 auto;
     font-size: 1.2rem;
+    flex: 0 0 20%; }
+  .events .event-location {
     text-align: right;
-    font-weight: 400; }
+    font-size: 1.2rem;
+    font-weight: 400;
+    flex: 1 0 auto; }
 
 @media screen and (min-width: 660px) {
   .events li {
@@ -585,15 +600,52 @@ nav {
   .events .event-location {
     font-weight: normal; } }
 .contact {
-  line-height: 2;
-  text-align: center; }
+  text-align: center;
+  line-height: 2; }
   .contact .fa {
     margin-right: 1rem; }
   .contact p {
-    border-bottom: 1px solid #ddd;
-    transition: .4s; }
+    transition: .4s;
+    border-bottom: 1px solid #ddd; }
     .contact p:hover {
-      box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5);
-      transform: scale(1.01) translateY(0.2rem); }
+      transform: scale(1.01) translateY(0.2rem);
+      box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
+
+.modal-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  overflow: auto;
+  max-width: 95vw;
+  max-height: 95vh;
+  padding: 1rem;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  flex-flow: column;
+  border-radius: .4rem;
+  box-shadow: 0 0.25rem 0.5rem -0.25rem #231f20; }
+  .modal-window .modal-title {
+    flex: 0 0 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+    align-items: center; }
+
+.modal-background {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 31, 32, 0.8); }
+
+.modal-close {
+  cursor: pointer;
+  flex: 0 0 1rem;
+  padding: 0 1rem; }
 
 /*# sourceMappingURL=main.css.map */
