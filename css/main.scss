@@ -497,6 +497,8 @@ nav {
 }
 
 .modal-background {
+  opacity: 0;
+  transition: .4s;
   position: fixed;
   z-index: 3;
   top: 0;
