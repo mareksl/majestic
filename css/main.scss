@@ -479,24 +479,28 @@ nav {
   overflow: auto;
   max-width: 95vw;
   max-height: 95vh;
-  padding: 1rem;
+width: 80vw;
+  padding: .0625rem;
   transform: translate(-50%, -50%);
   background: $primary-color-light;
   flex-flow: column;
-  border-radius: .4rem;
   box-shadow: $box-shadow-light;
 
   .modal-title {
-    flex: 0 0 2rem;
+    // padding: 1rem;
+    flex: 1 0 auto;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    margin-bottom: .5rem;
+    padding: .5rem;
     align-items: center;
+
   }
 }
 
 .modal-background {
+  opacity: 0;
+  transition: .4s;
   position: fixed;
   z-index: 3;
   top: 0;
