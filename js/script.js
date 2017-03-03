@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', function fetchThumbnail() {
 });
 
 function show(e) {
-    e.style.display = "block";
+    e.style.display = "flex";
     setTimeout(function() {
         e.style.opacity = 1;
-    });
+    }, 0);
 }
 
 function hide(e) {
@@ -88,9 +88,14 @@ modalOpen.addEventListener("click", function() {
 });
 if ($$("#modalClose")) $$("#modalClose").onclick = function() {
     hide($$("#modal"));
-}
+};
 window.onclick = function(event) {
     if (event.target == $$("#modal")) {
         hide($$("#modal"));
     }
-}
+};
+
+/* Modal object
+for each .modal create object
+method: hide, show
+*/
