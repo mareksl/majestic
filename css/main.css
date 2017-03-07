@@ -281,7 +281,7 @@ a {
   transition: .4s;
   text-decoration: none;
   color: #733236; }
-  a:hover {
+  a:hover, a:focus {
     text-decoration: underline;
     color: #853109; }
   a:active {
@@ -332,11 +332,11 @@ nav {
     padding: .5rem;
     transition: .4s;
     line-height: 0; }
-    nav h1:hover {
+    nav h1:focus, nav h1:hover {
       filter: drop-shadow(0 0.2rem 0.1rem #231f20); }
-      nav h1:hover .logo-path {
+      nav h1:focus .logo-path, nav h1:hover .logo-path {
         transform: translateX(2px) translateY(2px); }
-      nav h1:hover .logo-outline {
+      nav h1:focus .logo-outline, nav h1:hover .logo-outline {
         fill: url("#hover_gradient"); }
   nav ul {
     display: flex;
@@ -363,7 +363,7 @@ nav {
     transition: .4s;
     border: 0;
     background: none; }
-    nav .menu-trigger:hover {
+    nav .menu-trigger:focus, nav .menu-trigger:hover {
       fill: #ed1c24; }
     nav .menu-trigger:focus {
       transform: rotate(90deg); }
@@ -403,10 +403,10 @@ nav {
     .header-content svg .sun-outer {
       transition: .4s;
       transform-origin: center; }
-    .header-content svg:hover {
+    .header-content svg:focus, .header-content svg:hover {
       transform: scale(1.1);
       filter: drop-shadow(0 0.2rem 0.1rem #231f20); }
-      .header-content svg:hover .sun-outer {
+      .header-content svg:focus .sun-outer, .header-content svg:hover .sun-outer {
         transform: scale(1.1) rotate(-5deg); }
 
 .social {
@@ -423,7 +423,7 @@ nav {
     text-decoration: none;
     color: #231f20;
     font-size: 10vh; }
-    .social a :hover {
+    .social a:focus, .social a:hover {
       transition: .4s;
       animation: logo .4s forwards;
       color: #ffcb04;
@@ -529,9 +529,9 @@ nav {
       left: 0;
       opacity: 0;
       background-color: rgba(35, 31, 32, 0.5); }
-    .profile:hover img {
+    .profile:focus img, .profile:hover img {
       filter: blur(5px); }
-    .profile:hover figcaption {
+    .profile:focus figcaption, .profile:hover figcaption {
       opacity: 1; }
     .profile h3 {
       background-color: #fff; } }
@@ -581,7 +581,7 @@ nav {
     transition: .4s;
     transform: translate3d(-50%, -50%, 0);
     color: #fff; }
-  .youtube:hover .fa {
+  .youtube:focus .fa, .youtube:hover .fa {
     color: #ffcb04; }
   .youtube iframe {
     position: absolute;
@@ -601,7 +601,7 @@ nav {
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: center; }
-    .events li:hover {
+    .events li:focus, .events li:hover {
       transform: scale(1.01) translateY(0.2rem);
       box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
   .events span {
@@ -633,7 +633,7 @@ nav {
   font-variant: small-caps;
   cursor: pointer;
   margin-bottom: 2rem; }
-  .events-more:hover {
+  .events-more:focus, .events-more:hover {
     transform: scale(1.01) translateY(0.2rem);
     box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
 
@@ -653,7 +653,7 @@ nav {
     padding: 1em 0;
     transition: .4s;
     border-bottom: 1px solid #ddd; }
-    .contact p:hover {
+    .contact p:focus, .contact p:hover {
       transform: scale(1.01) translateY(0.2rem);
       box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
 
@@ -697,7 +697,7 @@ nav {
     transition: .4s;
     cursor: pointer;
     flex: 0 0 auto; }
-    .modal-window .modal-close:hover {
+    .modal-window .modal-close:focus, .modal-window .modal-close:hover {
       fill: #ffcb04; }
 
 /*# sourceMappingURL=main.css.map */
