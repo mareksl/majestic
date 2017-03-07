@@ -102,3 +102,36 @@ window.onclick = function (event) {
 for each .modal create object
 method: hide, show
 */
+
+// EVENTS
+document.addEventListener("DOMContentLoaded", function eventList() {
+    var x = 5;
+
+    function hideEvents(list) {
+        var events = list.getElementsByTagName('li');
+        for (var i = 0; i < events.length; i++) {
+            if (i >= x) {
+                events[i].style.display = 'none';
+                events[i].style.height = 0;
+            }
+        }
+        if (events.length <= 5) {
+                $(".events-more").style.display = "none";
+        }
+    }
+
+    $(".events-more").addEventListener('click', function() {
+        var events = $(".events-future").getElementsByTagName('li');
+        x = (x + 5 <= events.length) ? x + 5 : events.length;
+        for (var i = 5; i < x; i++) {
+            events[i].style.display = 'flex';
+            events[i].style.height = 'auto';
+        }
+        if (x === events.length) {
+            $(".events-more").style.display = "none";
+        }
+    });
+
+    hideEvents($(".events-future"));
+});
+// EVENTS
