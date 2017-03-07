@@ -1,98 +1,98 @@
 /* jshint browser: true */
 'use strict';
-var $$ = function (elem) {
-  return document.querySelectorAll(elem);
+var $$ = function(elem) {
+    return document.querySelectorAll(elem);
 };
-var $ = function (elem) {
-  return document.querySelector(elem);
+var $ = function(elem) {
+    return document.querySelector(elem);
 };
-document.addEventListener("scroll", function () {
-  var scrolledHeight = window.pageYOffset || document.documentElement.scrollTop;
-  $$(".row-parallax").forEach(function (el) {
-    if (scrolledHeight <= el.offsetTop + el.offsetHeight) {
-      el.style.backgroundPositionY = ((scrolledHeight - el.offsetTop) / -2) - (el.offsetHeight / 2) + "px";
-    } else {
-      el.style.backgroundPositionY = "center";
-    }
-  });
+document.addEventListener("scroll", function() {
+    var scrolledHeight = window.pageYOffset || document.documentElement.scrollTop;
+    $$(".row-parallax").forEach(function(el) {
+        if (scrolledHeight <= el.offsetTop + el.offsetHeight) {
+            el.style.backgroundPositionY = ((scrolledHeight - el.offsetTop) / -2) - (el.offsetHeight / 2) + "px";
+        } else {
+            el.style.backgroundPositionY = "center";
+        }
+    });
 });
 // Parallax end
 // Smooth scroll
 document.addEventListener('DOMContentLoaded', function navScroll() {
-  // Get all navigation links
-  var navLinks = $$('nav a');
+    // Get all navigation links
+    var navLinks = $$('nav a');
 
-  function scrollTo(event) {
-    if (this.hash !== '') {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash and find DOMElement
-      var hash = this.hash;
-      var scrollElement = $(hash);
-      // Scroll to element
-      Velocity(scrollElement, 'scroll', {
-        duration: 1000,
-        easing: 'easeInOutQuad',
-        offset: -64
-      });
-      // Add hash (#) to URL
-      window.location.hash = hash;
+    function scrollTo(event) {
+        if (this.hash !== '') {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+            // Store hash and find DOMElement
+            var hash = this.hash;
+            var scrollElement = $(hash);
+            // Scroll to element
+            Velocity(scrollElement, 'scroll', {
+                duration: 1000,
+                easing: 'easeInOutQuad',
+                offset: -64
+            });
+            // Add hash (#) to URL
+            window.location.hash = hash;
+        }
     }
-  }
-  for (var i = 0; i < navLinks.length; i++) {
-    navLinks[i].addEventListener('click', scrollTo);
-  }
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', scrollTo);
+    }
 });
 // Smooth Scroll end
 function easeOutInQuad(t, d) {
-  t /= d;
-  return t * t * t;
+    t /= d;
+    return t * t * t;
 }
 // Youtube lazy load
 document.addEventListener('DOMContentLoaded', function fetchThumbnail() {
-  var youtube = $$(".youtube");
-  for (var i = 0; i < youtube.length; i++) {
-    var source = "https://img.youtube.com/vi/" + youtube[i].dataset.embed + "/sddefault.jpg";
-    var image = new Image();
-    image.src = source;
-    image.addEventListener("load", function () {
-      youtube[i].appendChild(image);
-    }(i));
-    youtube[i].addEventListener("click", function () {
-      var iframe = document.createElement("iframe");
-      iframe.setAttribute("frameborder", "0");
-      iframe.setAttribute("allowfullscreen", "");
-      iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
-      this.innerHTML = "";
-      this.appendChild(iframe);
-    });
-  }
+    var youtube = $$(".youtube");
+    for (var i = 0; i < youtube.length; i++) {
+        var source = "https://img.youtube.com/vi/" + youtube[i].dataset.embed + "/sddefault.jpg";
+        var image = new Image();
+        image.src = source;
+        image.addEventListener("load", function() {
+            youtube[i].appendChild(image);
+        }(i));
+        youtube[i].addEventListener("click", function() {
+            var iframe = document.createElement("iframe");
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allowfullscreen", "");
+            iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
+            this.innerHTML = "";
+            this.appendChild(iframe);
+        });
+    }
 });
 
 function show(e) {
-  e.style.display = "flex";
-  setTimeout(function () {
-    e.style.opacity = 1;
-  }, 0);
+    e.style.display = "flex";
+    setTimeout(function() {
+        e.style.opacity = 1;
+    }, 0);
 }
 
 function hide(e) {
-  e.style.opacity = 0;
-  // e.addEventListener("transitionend", function(event) {
-  e.style.display = "none";
-  // }, false);
+    e.style.opacity = 0;
+    // e.addEventListener("transitionend", function(event) {
+    e.style.display = "none";
+    // }, false);
 }
 var modalOpen = $("#modalOpen");
-modalOpen.addEventListener("click", function () {
-  show($("#modal"));
+modalOpen.addEventListener("click", function() {
+    show($("#modal"));
 });
-if ($("#modalClose")) $("#modalClose").onclick = function () {
-  hide($("#modal"));
-};
-window.onclick = function (event) {
-  if (event.target == $("#modal")) {
+if ($("#modalClose")) $("#modalClose").onclick = function() {
     hide($("#modal"));
-  }
+};
+window.onclick = function(event) {
+    if (event.target == $("#modal")) {
+        hide($("#modal"));
+    }
 };
 // var images = ;
 // for (var i = 0; i < array.length; i++) {
@@ -102,7 +102,6 @@ window.onclick = function (event) {
 for each .modal create object
 method: hide, show
 */
-
 // EVENTS
 document.addEventListener("DOMContentLoaded", function eventList() {
     var x = 5;
@@ -112,26 +111,23 @@ document.addEventListener("DOMContentLoaded", function eventList() {
         for (var i = 0; i < events.length; i++) {
             if (i >= x) {
                 events[i].style.display = 'none';
-                events[i].style.height = 0;
+                events[i].style.opacity = 0;
             }
         }
         if (events.length <= 5) {
-                $(".events-more").style.display = "none";
+            $(".events-more").style.display = "none";
         }
     }
-
     $(".events-more").addEventListener('click', function() {
         var events = $(".events-future").getElementsByTagName('li');
         x = (x + 5 <= events.length) ? x + 5 : events.length;
         for (var i = 5; i < x; i++) {
-            events[i].style.display = 'flex';
-            events[i].style.height = 'auto';
+            show(events[i]);
         }
         if (x === events.length) {
             $(".events-more").style.display = "none";
         }
     });
-
     hideEvents($(".events-future"));
 });
 // EVENTS

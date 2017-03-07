@@ -620,10 +620,10 @@ nav {
     flex: 1 0 auto; }
 
 .events-more {
-  color: #231f20;
-  font-size: 1.2em;
-  font-family: "Poiret One", serif;
-  font-weight: 700;
+  color: #733236;
+  font-size: 1.2rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
   width: 100%;
   background: #fff;
   padding: .5rem;
@@ -631,7 +631,8 @@ nav {
   border: 0;
   border-bottom: 1px solid #ddd;
   font-variant: small-caps;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-bottom: 2rem; }
   .events-more:hover {
     transform: scale(1.01) translateY(0.2rem);
     box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
