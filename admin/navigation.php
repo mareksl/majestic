@@ -34,41 +34,37 @@
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Główna</a>
+                    <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Główna</a>
                 </li>
                 <li>
-                    <a href="info.html"><i class="fa fa-info fa-fw"></i> O nas</a>
+                    <a href="info.php"><i class="fa fa-info fa-fw"></i> O nas</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-calendar fa-fw"></i> Wydarzenia</a>
+                    <a href="events.php"><i class="fa fa-calendar fa-fw"></i> Wydarzenia</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-picture-o fa-fw"></i> Galeria</a>
+                    <a href="images.php"><i class="fa fa-picture-o fa-fw"></i> Galeria</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-play fa-fw"></i> Muzyka i Wideo<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#"><i class="fa fa-music fa-fw"></i> Linki</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-video-camera fa-fw"></i> Wideo</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="videos.php"><i class="fa fa-play fa-fw"></i> Wideo</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-address-card-o fa-fw"></i> Kontakt<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#"><i class="fa fa-envelope fa-fw"></i> Informacje</a>
+                            <a href="contact.php"><i class="fa fa-envelope fa-fw"></i> Informacje</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-upload fa-fw"></i> Pliki</a>
+                            <a href="files.php"><i class="fa fa-upload fa-fw"></i> Pliki</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                <?php if ($_SESSION['login_level'] == '2') {?>
+                <li>
+                    <a href="users.php"><i class="fa fa-user fa-fw"></i> Użytkownicy</a>
+                </li>
+                <?php }?>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
