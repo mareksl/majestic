@@ -250,7 +250,8 @@ h1 {
 h2 {
   text-align: center;
   font-family: "Poiret One", serif;
-  font-size: 8vmin; }
+  font-size: 8vmin;
+  padding-bottom: 1rem; }
 
 h3 {
   font-size: 1.5em;
@@ -267,7 +268,7 @@ h6 {
   font-size: 1.125em; }
 
 p {
-  padding: 2em 0;
+  padding-bottom: 2em;
   font-size: 1.1em;
   max-width: 32rem;
   margin: auto;
@@ -511,9 +512,6 @@ nav {
 
 .video {
   margin: 1rem 0;
-  border-top: 1px solid #eeecec;
-  border-right: 1px solid #eeecec;
-  border-left: 1px solid #eeecec;
   box-shadow: 0 0.4rem 0.8rem -0.4rem #231f20;
   flex: 0 1 45%; }
   .video .video-title {
@@ -524,7 +522,10 @@ nav {
     white-space: nowrap;
     text-overflow: ellipsis;
     background-color: #fff;
-    font-size: 1.4em; }
+    font-size: 1.4em;
+    border-top: 1px solid #eeecec;
+    border-right: 1px solid #eeecec;
+    border-left: 1px solid #eeecec; }
 
 @media screen and (min-width: 660px) {
   .video-gallery {
@@ -623,7 +624,7 @@ nav {
 
 .modal-window {
   max-height: 90vh;
-  box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5);
+  box-shadow: 0 0.4rem 0.8rem -0.4rem #231f20;
   margin: 2vw;
   background: #fff;
   overflow: auto; }
@@ -632,16 +633,22 @@ nav {
     max-width: 100%;
     height: auto; }
   .modal-window .modal-title {
+    font-size: 1.2em;
     padding: 1rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    border-top: 1px solid #eeecec;
+    border-right: 1px solid #eeecec;
+    border-left: 1px solid #eeecec; }
   .modal-window .modal-close {
+    width: 2rem;
+    height: 2rem;
     transition: .4s;
     cursor: pointer;
     flex: 0 0 auto; }
     .modal-window .modal-close:hover {
-      color: #ffcb04; }
+      fill: #ffcb04; }
 
 /*# sourceMappingURL=main.css.map */
