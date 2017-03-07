@@ -52,6 +52,7 @@ nav {
     transition: .4s;
     line-height: 0;
 
+    &:focus,
     &:hover {
       filter: drop-shadow($hover-shadow-dark);
 
@@ -97,6 +98,7 @@ nav {
     border: 0;
     background: none;
 
+    &:focus,
     &:hover {
       fill: $accent-color;
     }
@@ -161,6 +163,7 @@ nav {
       transform-origin: center;
     }
 
+    &:focus,
     &:hover {
       transform: scale(1.1);
       filter: drop-shadow($hover-shadow-dark);
@@ -190,7 +193,8 @@ nav {
     color: $primary-color-dark;
     font-size: 10vh;
 
-    :hover {
+    &:focus,
+    &:hover {
       transition: .4s;
       animation: logo .4s forwards;
       color: $accent-color-light;
@@ -206,7 +210,6 @@ nav {
 .row-padded {
   padding: 1rem;
 }
-
 
 .row-parallax {
   position: relative;
@@ -229,7 +232,7 @@ nav {
 }
 // PROFILE CARDS
 
-.gallery-grid {
+.profile-grid {
   flex-flow: row;
 
   &:first-child {
@@ -238,6 +241,47 @@ nav {
     }
   }
 }
+// GALLERY
+
+.gallery-grid {
+  overflow: visible;
+  column-count: 2;
+  column-gap: .5rem;
+  -moz-column-count: 2;
+  -moz-column-gap: .5rem;
+  -webkit-column-count: 2;
+  -webkit-column-gap: .5rem;
+
+  & > * {
+    display: inline-block;
+    width: 100%;
+    margin: .25rem 0;
+    transition: transform .4s;
+    background: $accent-color-light;
+    box-shadow: $box-shadow-light;
+    backface-visibility: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media screen and (min-width: 660px) {
+  .gallery-grid {
+    column-count: 3;
+    column-gap: 1rem;
+    -moz-column-count: 3;
+    -moz-column-gap: 1rem;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 1rem;
+
+    & > * {
+      margin: .5rem 0;
+    }
+  }
+}
+// GALLERY END
 
 .profile {
   position: relative;
@@ -278,7 +322,7 @@ nav {
   }
 }
 @media screen and (min-width: 660px) {
-  .gallery-grid {
+  .profile-grid {
     &:last-child {
       margin-bottom: 4rem;
     }
@@ -297,6 +341,7 @@ nav {
       background-color: rgba($primary-color-dark, .5);
     }
 
+    &:focus,
     &:hover {
       img {
         filter: blur(5px);
@@ -372,6 +417,7 @@ nav {
     color: $primary-color-light;
   }
 
+  &:focus,
   &:hover {
     .fa {
       color: $accent-color-light;
@@ -404,6 +450,7 @@ nav {
     justify-content: space-between;
     align-items: center;
 
+    &:focus,
     &:hover {
       transform: scale(1.01) translateY(.2rem);
       box-shadow: $box-shadow;
@@ -432,6 +479,28 @@ nav {
     flex: 1 0 auto;
   }
 }
+
+.events-more {
+  color: $accent-color-dark;
+  font-size: 1.2rem;
+  font-family: $sans;
+  font-weight: 400;
+  width: 100%;
+  background: $primary-color-light;
+  padding: .5rem;
+  transition: .4s;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  font-variant: small-caps;
+  cursor: pointer;
+  margin-bottom: 2rem;
+
+  &:focus,
+  &:hover {
+    transform: scale(1.01) translateY(.2rem);
+    box-shadow: $box-shadow;
+  }
+}
 @media screen and (min-width: 660px) {
   .events {
     li {
@@ -457,9 +526,11 @@ nav {
   }
 
   p {
+    padding: 1em 0;
     transition: .4s;
     border-bottom: 1px solid #ddd;
 
+    &:focus,
     &:hover {
       transform: scale(1.01) translateY(.2rem);
       box-shadow: $box-shadow;
@@ -514,6 +585,7 @@ nav {
     cursor: pointer;
     flex: 0 0 auto;
 
+    &:focus,
     &:hover {
       fill: $accent-color-light;
     }
