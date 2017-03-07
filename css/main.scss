@@ -474,10 +474,10 @@ nav {
 }
 
 .events-more {
-  color: $primary-color-dark;
-  font-size: 1.2em;
-  font-family: $serif;
-  font-weight: 700;
+  color: $accent-color-dark;
+  font-size: 1.2rem;
+  font-family: $sans;
+  font-weight: 400;
   width: 100%;
   background: $primary-color-light;
   padding: .5rem;
@@ -486,6 +486,7 @@ nav {
   border-bottom: 1px solid #ddd;
   font-variant: small-caps;
   cursor: pointer;
+  margin-bottom: 2rem;
 
   &:hover {
     transform: scale(1.01) translateY(.2rem);
