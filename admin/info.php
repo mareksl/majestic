@@ -1,21 +1,3 @@
-<?php
-// Database configuration
-require 'config.php';
-
-// Create connection
-$conn = new mysqli($conn_server, $conn_user, $conn_pass, $conn_db);
-
-// Check connection
-if ($conn->connect_error) {
-    die('Connection failed: '.$conn->connect_error);
-}
-mysqli_query($conn, 'SET CHARSET utf8');
-mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
-session_start();
-if (!isset($_SESSION['login_user'])) {
-    header('Location: login.php');
-}
-?>
 <!DOCTYPE html>
 <html>
 
@@ -33,32 +15,50 @@ if (!isset($_SESSION['login_user'])) {
 
     <div id="wrapper">
 
-      <!-- Navigation -->
-      <?php require_once 'navigation.php'; ?>
+        <!-- Navigation -->
+        <?php require_once 'navigation.php'; ?>
 
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                      <?php
+                        <?php
                         $sql = 'SELECT * FROM tbl_info';
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc()
                       ?>
                         <h1 class="page-header">O nas</h1>
-                        <div class="panel panel-default">
-                          <div class="panel-heading">Informacja o stronie</div>
-                          <div class="panel-body">
-                            <form action="">
-                              <fieldset class="form-group">
-                                <label>O nas</label>
-                                <textarea class="form-control" rows="3" name="description" <?php if ($_SESSION['login_level'] == '0') {echo 'disabled';}?>><?php echo $row['description']; ?></textarea>
-                              </fieldset>
-                            </form>
-                          </div>
-                          <div class="panel-footer"></div>
-                        </div>
+                        <form action="">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Informacja o stronie</div>
+                                <div class="panel-body row">
+                                    <fieldset class="col-md-6 form-group">
+                                        <label>O nas</label>
+                                        <textarea class="form-control" rows="8" name="description" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>><?php echo $row['description']; ?></textarea>
+                                    </fieldset>
+                                    <fieldset class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Facebook</label>
+                                            <input class="form-control" value="<?php echo $row['link_facebook']; ?>" name="link_facebook" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Spotify</label>
+                                            <input class="form-control" value="<?php echo $row['link_spotify']; ?>" name="link_spotify" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>YouTube</label>
+                                            <input class="form-control" value="<?php echo $row['link_youtube']; ?>" name="link_youtube" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="panel-footer">
+                                    <fieldset <?php if ($_SESSION['login_level'] == "0") {echo " disabled>";}?>>
+                                    <button type="submit" class="btn btn-outline btn-primary btn-block" form="edit_details">Zapisz</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
