@@ -168,7 +168,8 @@ header {
 .row {
   display: flex;
   flex: 1 0 auto;
-  flex-flow: column; }
+  flex-flow: column;
+  overflow: hidden; }
 
 .col {
   flex: 1 1 auto; }
