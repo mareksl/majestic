@@ -24,7 +24,7 @@ if (!isset($_SESSION['login_user'])) {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="index.html">Majestic | Admin Panel</a>
+        <a class="navbar-brand" href="index.php">Majestic | Admin Panel</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -83,6 +83,9 @@ if (!isset($_SESSION['login_user'])) {
                     <a href="users.php"><i class="fa fa-user fa-fw"></i> Użytkownicy</a>
                 </li>
                 <?php }?>
+                <li>
+                  <a href="#"><small>&copy; Marek Sładczyk 2017</small></a>
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
