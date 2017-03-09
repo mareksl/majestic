@@ -29,9 +29,10 @@
                         $row = $result->fetch_assoc()
                       ?>
                         <h1 class="page-header">O nas</h1>
-                        <form action="">
+                        <form id="form_info">
+                          <input type="hidden" name="process" value="edit_details">
                             <div class="panel panel-default">
-                                <div class="panel-heading">Informacja o stronie</div>
+                                <div class="panel-heading">Informacje o stronie</div>
                                 <div class="panel-body row">
                                     <fieldset class="col-md-6 form-group">
                                         <label>O nas</label>
@@ -53,8 +54,8 @@
                                     </fieldset>
                                 </div>
                                 <div class="panel-footer">
-                                    <fieldset <?php if ($_SESSION['login_level'] == "0") {echo " disabled>";}?>>
-                                    <button type="submit" class="btn btn-outline btn-primary btn-block" form="edit_details">Zapisz</button>
+                                    <fieldset <?php if ($_SESSION[ 'login_level']=="0" ) {echo " disabled>";}?>>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" form="form_info">Zapisz</button>
                                     </fieldset>
                                 </div>
                             </div>
@@ -74,6 +75,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.3/metisMenu.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js" charset="utf-8"></script>
+    <script src="js/script.js" charset="utf-8"></script>
 </body>
 
 </html>
