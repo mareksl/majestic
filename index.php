@@ -169,22 +169,26 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                     <div class="row">
                         <div class="col col-2"></div>
                         <div class="col col-8 gallery-grid">
-                            <img alt="" src="https://placehold.it/350x150/962558/ffffff?text=1">
-                            <img alt="" src="https://placehold.it/150x300/30d4f0/ffffff?text=2">
-                            <img alt="" src="https://placehold.it/250x250/447733/ffffff?text=3">
-                            <img alt="" src="https://placehold.it/150x300/0086eb/ffffff?text=4">
-                            <img alt="" src="https://placehold.it/380x120/9d4253/ffffff?text=5">
-                            <img alt="" src="https://placehold.it/400x300/89e7bf/ffffff?text=6">
-                            <img alt="" src="https://placehold.it/140x150/FF5733/ffffff?text=7">
-                            <img alt="" src="https://placehold.it/130x280/B7950B/ffffff?text=8">
-                            <img alt="" src="https://placehold.it/280x150/1f8c94/ffffff?text=9">
-                            <img alt="" src="https://placehold.it/280x420/bfa74b/ffffff?text=10">
-                            <img alt="" src="https://placehold.it/180x380/194c18/ffffff?text=11">
-                            <img alt="" src="https://placehold.it/350x150/962558/ffffff?text=12">
-                            <img alt="" src="https://placehold.it/150x300/30d4f0/ffffff?text=13">
-                            <img alt="" src="https://placehold.it/250x250/447733/ffffff?text=14">
-                            <img alt="" src="https://placehold.it/150x300/0086eb/ffffff?text=15">
-
+                          <?php
+                          $conn = new mysqli($conn_server, $conn_user, $conn_pass, $conn_db);
+                          if ($conn->connect_error) {
+                              die('Connection failed: '.$conn->connect_error);
+                          }
+                          $sql = 'SELECT * FROM tbl_pictures';
+                          $result = $conn->query($sql);
+                          if ($result->num_rows > 0) {
+                              while ($row = $result->fetch_assoc()) {
+                                  ?>
+                          <a href="img/gallery/<?php echo $row['filename']; ?>"><img src="img/gallery/<?php echo $row['filename']; ?>" alt="<?php if ($row['title'] !== '') {
+                                      echo $row['title'];
+                                  } else {
+                                      echo 'Zdjęcie bez tytułu';
+                                  } ?>"></a>
+                          <?php
+                              }
+                          }
+                          $conn->close();
+                          ?>
                         </div>
                         <div class="col col-2"></div>
                     </div>
