@@ -5,18 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Majestic | Admin Panel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.3/metisMenu.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php require_once 'stylesheets.php'; ?>
 </head>
 
 <body>
 
     <div id="wrapper">
 
-      <!-- Navigation -->
-      <?php require_once 'navigation.php'; ?>
+        <!-- Navigation -->
+        <?php require_once 'navigation.php'; ?>
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -24,6 +21,39 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Blank</h1>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="resp">Informacje o stronie</div>
+                            <div class="panel-body row">
+                                <form enctype="multipart/form-data" name="form-upload-presspack" class="col-md-6 form-group">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
+                                    <input type="hidden" name="process" value="upload_file">
+                                    <input type="hidden" name="filetype" value="presspack">
+                                    <fieldset class="form-group">
+                                        <label>Press Pack</label>
+                                        <input type="file" name="file">
+                                    </fieldset>
+                                    <fieldset <?php if ($_SESSION[ 'login_level']=='0' ) { echo ' disabled>'; }?>>
+                                        <button type="submit" class="btn btn-primary">Zapisz</button>
+                                    </fieldset>
+                                </form>
+                                <form enctype="multipart/form-data" name="form-upload-rider" class="col-md-6 form-group">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
+                                    <input type="hidden" name="process" value="upload_file">
+                                    <input type="hidden" name="filetype" value="rider">
+                                    <fieldset class="form-group">
+                                        <label>Rider</label>
+                                        <input type="file" name="file">
+                                    </fieldset>
+                                    <fieldset <?php if ($_SESSION[ 'login_level']=='0' ) { echo ' disabled>'; }?>>
+                                        <button type="submit" class="btn btn-primary">Zapisz</button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="panel-footer">
+                            </div>
+                        </div>
+                        </form>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -35,10 +65,8 @@
 
     </div>
     <!-- /#wrapper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.3/metisMenu.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js" charset="utf-8"></script>
+    <?php require_once 'scripts.php'; ?>
+    <script src="js/edit_info.js" charset="utf-8"></script>
 </body>
 
 </html>

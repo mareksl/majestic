@@ -262,6 +262,13 @@ nav {
     backface-visibility: hidden;
   }
 
+  a {
+    line-height: 0;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
   img {
     max-width: 100%;
     height: auto;

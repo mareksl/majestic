@@ -5,10 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Majestic | Admin Panel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.3/metisMenu.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php require_once 'stylesheets.php'; ?>
 </head>
 
 <body>
@@ -29,7 +26,7 @@
                         $row = $result->fetch_assoc()
                       ?>
                         <h1 class="page-header">O nas</h1>
-                        <form id="form_info">
+                        <form name="form-info">
                           <input type="hidden" name="process" value="edit_details">
                             <div class="panel panel-default">
                                 <div class="panel-heading">Informacje o stronie</div>
@@ -55,7 +52,7 @@
                                 </div>
                                 <div class="panel-footer">
                                     <fieldset <?php if ($_SESSION[ 'login_level']=="0" ) {echo " disabled>";}?>>
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" form="form_info">Zapisz</button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Zapisz</button>
                                     </fieldset>
                                 </div>
                             </div>
@@ -71,11 +68,8 @@
 
     </div>
     <!-- /#wrapper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.3/metisMenu.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js" charset="utf-8"></script>
-    <script src="js/script.js" charset="utf-8"></script>
+    <?php require_once 'scripts.php'; ?>
+    <script src="js/edit_info.js" charset="utf-8"></script>
 </body>
 
 </html>
