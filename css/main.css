@@ -169,7 +169,7 @@ header {
   display: flex;
   flex: 1 0 auto;
   flex-flow: column;
-  overflow: hidden; }
+  overflow: visible; }
 
 .col {
   flex: 1 1 auto; }
@@ -473,6 +473,10 @@ nav {
     background: #ffcb04;
     box-shadow: 0 0.4rem 0.8rem -0.4rem #231f20;
     backface-visibility: hidden; }
+  .gallery-grid a {
+    line-height: 0; }
+    .gallery-grid a:hover {
+      transform: scale(1.1); }
   .gallery-grid img {
     max-width: 100%;
     height: auto; }
