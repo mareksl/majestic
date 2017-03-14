@@ -71,8 +71,8 @@ document.getElementById('invalid').innerHTML ='<div class="alert alert-danger al
         </div>
     </div>
     <?php require_once 'scripts.php'; ?>
+    <?php $conn->close(); ?>
 </body>
 
 
 </html>
-<?php $conn->close(); ?>
