@@ -137,19 +137,30 @@ break;
 //UPLOAD FILE
 case 'upload_file':
 $file_tmp = $_FILES['file']['tmp_name'];
-$file_name = $_FILES['file']['name'];
 $file_size = $_FILES['file']['size'];
 $file_type = $_POST['filetype'];
+$file_extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
 if (is_uploaded_file($file_tmp)) {
-  if ($file_type = 'presspack') {
-    move_uploaded_file($file_tmp, "../files/presspack.pdf");
-  } else if ($file_type = 'rider') {
-    move_uploaded_file($file_tmp, "../files/rider.pdf");
-  }
+    if ($file_type == 'presspack') {
+        $file_name = 'presspack.'.$file_extension;
+        move_uploaded_file($file_tmp, "../files/$file_name");
+        $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'presspack')
+  ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
+    } elseif ($file_type == 'rider') {
+        move_uploaded_file($file_tmp, "../files/rider.$file_extension");
+        $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
+  ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
+    }
 }
-$data['success'] = true;
-$data['message'] = 'Dodano plik!';
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano plik!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+
 echo json_encode($data);
 
 break;

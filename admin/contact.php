@@ -33,6 +33,7 @@
     </div>
     <!-- /#wrapper -->
     <?php require_once 'scripts.php'; ?>
+    <?php $conn->close(); ?>
 </body>
 
 </html>

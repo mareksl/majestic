@@ -70,6 +70,7 @@
     <!-- /#wrapper -->
     <?php require_once 'scripts.php'; ?>
     <script src="js/edit_info.js" charset="utf-8"></script>
+    <?php $conn->close(); ?>
 </body>
 
 </html>
