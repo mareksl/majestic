@@ -183,7 +183,11 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                                       echo $row['title'];
                                   } else {
                                       echo 'Zdjęcie bez tytułu';
-                                  } ?>"></a>
+                                  } ?>" data-title="<?php if ($row['title'] !== '') {
+                                              echo $row['title'];
+                                          } else {
+                                              echo 'Zdjęcie bez tytułu';
+                                          } ?>"></a>
                           <?php
                               }
                           }
@@ -370,20 +374,6 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
         <footer>
             <small>&copy; Marek Sładczyk 2017</small> <button id="modalOpen">Open Modal</button>
         </footer>
-    </div>
-    <div class="modal-background" id="modal">
-        <div class="modal-window">
-            <div class="modal-title">
-                <span>Lorem ipsum dolor sit amet</span>
-                <span class="modal-close" id="modalClose">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-                    <path d="M13.087 103.597l90.51-90.51 11.313 11.315-90.508 90.51z"/>
-                    <path d="M24.402 13.088l90.51 90.51-11.315 11.313-90.51-90.507z"/>
-                  </svg>
-                </span>
-            </div>
-            <img src="img/test.jpg" alt="" class="img-responsive">
-        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.1/velocity.min.js" charset="utf-8"></script>
     <script src="js/script.js" charset="utf-8"></script>

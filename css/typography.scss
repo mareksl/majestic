@@ -4,7 +4,7 @@ $serif: 'Poiret One', serif;
 $sans: 'Lato', sans-serif;
 $monospace: 'Courier new', Courier, 'Andale Mono', monospace; // $display: 'Montserrat';
 $hover-shadow: 0 .2rem .2rem $accent-color-light;
-$hover-shadow-dark: 0 .2rem .1rem $primary-color-dark;
+$hover-shadow-dark: 0 .15rem .1rem rgba($primary-color-dark, .5);
 
 html {
 	font-size: 16px;
