@@ -109,7 +109,6 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                                   echo nl2p($row['description']);
                 }
             }
-                        $conn->close();
                           ?>
                         </div>
                         <div class="col col-2"></div>
@@ -170,10 +169,6 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                         <div class="col col-2"></div>
                         <div class="col col-8 gallery-grid">
                           <?php
-                          $conn = new mysqli($conn_server, $conn_user, $conn_pass, $conn_db);
-                          if ($conn->connect_error) {
-                              die('Connection failed: '.$conn->connect_error);
-                          }
                           $sql = 'SELECT * FROM tbl_pictures';
                           $result = $conn->query($sql);
                           if ($result->num_rows > 0) {
