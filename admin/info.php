@@ -33,25 +33,25 @@
                                 <div class="panel-body row">
                                     <fieldset class="col-md-6 form-group">
                                         <label>O nas</label>
-                                        <textarea class="form-control" rows="8" name="description" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>><?php echo $row['description']; ?></textarea>
+                                        <textarea class="form-control" rows="8" name="description" <?php if ($_SESSION['login_level']=='0' ) {echo 'disabled';}?>><?php echo $row['description']; ?></textarea>
                                     </fieldset>
                                     <fieldset class="col-md-6">
                                         <div class="form-group">
                                             <label>Facebook</label>
-                                            <input class="form-control" value="<?php echo $row['link_facebook']; ?>" name="link_facebook" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>>
+                                            <input class="form-control" value="<?php echo $row['link_facebook']; ?>" name="link_facebook" <?php if ($_SESSION['login_level']=='0' ) {echo 'disabled';}?>>
                                         </div>
                                         <div class="form-group">
                                             <label>Spotify</label>
-                                            <input class="form-control" value="<?php echo $row['link_spotify']; ?>" name="link_spotify" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>>
+                                            <input class="form-control" value="<?php echo $row['link_spotify']; ?>" name="link_spotify" <?php if ($_SESSION['login_level']=='0' ) {echo 'disabled';}?>>
                                         </div>
                                         <div class="form-group">
                                             <label>YouTube</label>
-                                            <input class="form-control" value="<?php echo $row['link_youtube']; ?>" name="link_youtube" <?php if ($_SESSION[ 'login_level']=='0' ) {echo 'disabled';}?>>
+                                            <input class="form-control" value="<?php echo $row['link_youtube']; ?>" name="link_youtube" <?php if ($_SESSION['login_level']=='0' ) {echo 'disabled';}?>>
                                         </div>
                                     </fieldset>
                                 </div>
                                 <div class="panel-footer">
-                                    <fieldset <?php if ($_SESSION[ 'login_level']=="0" ) {echo " disabled>";}?>>
+                                    <fieldset <?php if ($_SESSION['login_level']=="0" ) {echo " disabled";}?>>
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">Zapisz</button>
                                     </fieldset>
                                 </div>

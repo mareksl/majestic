@@ -148,9 +148,10 @@ if (is_uploaded_file($file_tmp)) {
         $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'presspack')
   ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
     } elseif ($file_type == 'rider') {
-        move_uploaded_file($file_tmp, "../files/rider.$file_extension");
-        $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
-  ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
+      $file_name = 'rider.'.$file_extension;
+      move_uploaded_file($file_tmp, "../files/$file_name");
+      $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
+ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
     }
 }
 if ($conn->query($sql) === true) {
@@ -164,5 +165,19 @@ if ($conn->query($sql) === true) {
 echo json_encode($data);
 
 break;
-$conn->close();
+case 'add_event':
+$event_name = $_POST['event'];
+$event_city = $_POST['city'];
+$event_link = $_POST['link'];
+$event_date = $_POST['date'];
+$sql = "INSERT INTO tbl_events (venue, city, link, date) VALUES ('$event_name', '$event_name', '$event_link', '$event_date')";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano wydarzenie!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
 }
+echo json_encode($data);
+}
+$conn->close();
