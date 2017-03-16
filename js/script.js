@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function fetchThumbnail() {
         var image = new Image();
 
         image.src = source;
+				image.alt = youtube[i].parentElement.querySelector('.video-title').innerHTML;
         image.addEventListener("load", function() {
             youtube[i].appendChild(image);
         }(i));
