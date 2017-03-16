@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Galeria</h1>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="result">
                             <div class="panel-heading">
                                 <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#AddPictures">Dodaj Zdjęcia</button>
                                 <div class="modal fade" id="AddPictures" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -73,7 +73,7 @@
                                 <!-- /.modal -->
 
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body" id="panel">
                                 <div class="row">
                                     <?php
                                 $sql = 'SELECT COUNT(*) FROM tbl_pictures';
@@ -136,8 +136,8 @@
                                             </div>
                                             <div class="panel-footer">
                                                 <div class="row">
-                                                    <div class="col-xs-6 text-danger"><a href="#" title="Delete" data-toggle="modal" data-target="#DeletePicture_<?php echo $row['ID']; ?>"><span class="glyphicon glyphicon-trash"></span> Usuń</a></div>
-                                                    <div class="col-xs-6 text-right"><a href="#" title="Edit" data-toggle="modal" data-target="#EditPicture_<?php echo $row['ID']; ?>"><span class="glyphicon glyphicon-pencil"></span> Edytuj</a></div>
+                                                    <div class="col-xs-6 text-danger"><a href="#" title="Delete" data-toggle="modal" data-target="#DeletePicture_<?php echo $row['ID']; ?>"><span class="fa fa-trash"></span> Usuń</a></div>
+                                                    <div class="col-xs-6 text-right"><a href="#" title="Edit" data-toggle="modal" data-target="#EditPicture_<?php echo $row['ID']; ?>"><span class="fa fa-pencil"></span> Edytuj</a></div>
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="EditPicture_<?php echo $row['ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
@@ -280,7 +280,7 @@
     <?php require_once 'scripts.php'; ?>
 <script src="js/image_upload.js" charset="utf-8"></script>
 <script src="js/edit_info.js" charset="utf-8"></script>
-
+<?php $conn->close(); ?>
 </body>
 
 </html>

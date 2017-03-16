@@ -137,21 +137,47 @@ break;
 //UPLOAD FILE
 case 'upload_file':
 $file_tmp = $_FILES['file']['tmp_name'];
-$file_name = $_FILES['file']['name'];
 $file_size = $_FILES['file']['size'];
 $file_type = $_POST['filetype'];
+$file_extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
 if (is_uploaded_file($file_tmp)) {
-  if ($file_type = 'presspack') {
-    move_uploaded_file($file_tmp, "../files/presspack.pdf");
-  } else if ($file_type = 'rider') {
-    move_uploaded_file($file_tmp, "../files/rider.pdf");
-  }
+    if ($file_type == 'presspack') {
+        $file_name = 'presspack.'.$file_extension;
+        move_uploaded_file($file_tmp, "../files/$file_name");
+        $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'presspack')
+  ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
+    } elseif ($file_type == 'rider') {
+      $file_name = 'rider.'.$file_extension;
+      move_uploaded_file($file_tmp, "../files/$file_name");
+      $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
+ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
+    }
 }
-$data['success'] = true;
-$data['message'] = 'Dodano plik!';
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano plik!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+
 echo json_encode($data);
 
 break;
-$conn->close();
+case 'add_event':
+$event_name = $_POST['event'];
+$event_city = $_POST['city'];
+$event_link = $_POST['link'];
+$event_date = $_POST['date'];
+$sql = "INSERT INTO tbl_events (venue, city, link, date) VALUES ('$event_name', '$event_name', '$event_link', '$event_date')";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano wydarzenie!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
 }
+echo json_encode($data);
+}
+$conn->close();
