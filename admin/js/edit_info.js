@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("form[name|='form']").submit(function (event) {
     // get the form data
-var formData = new FormData(this);
+    var formData = new FormData(this);
     // process the form
     $.ajax({
         type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
@@ -38,6 +38,7 @@ var formData = new FormData(this);
     event.preventDefault();
   });
 });
+
 function genAlert(alertSuccess, alertHeading, alertContent) {
   var html = '';
   if (alertSuccess) {

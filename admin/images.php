@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Galeria</h1>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="result">
                             <div class="panel-heading">
                                 <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#AddPictures">Dodaj Zdjęcia</button>
                                 <div class="modal fade" id="AddPictures" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
