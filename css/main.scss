@@ -539,7 +539,7 @@ nav {
 
     &:focus,
     &:hover {
-      transform: scale(1.01) translateY(.2rem);
+      // transform: scale(1.01) translateY(.2rem);
       box-shadow: $box-shadow;
     }
   }

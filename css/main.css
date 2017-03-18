@@ -658,7 +658,6 @@ nav {
     transition: .4s;
     border-bottom: 1px solid #ddd; }
     .contact p:focus, .contact p:hover {
-      transform: scale(1.01) translateY(0.2rem);
       box-shadow: 0 1rem 0.5rem -1rem rgba(35, 31, 32, 0.5); }
 
 .modal-background {
