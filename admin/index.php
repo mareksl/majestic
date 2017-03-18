@@ -20,7 +20,15 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Blank</h1>
+                        <h1 class="page-header">Panel Admina</h1>
+                        <div class="list-group">
+                          <a href="info.php" class="list-group-item">Edytuj informacje o zespole</a>
+                          <a href="events.php" class="list-group-item">Dodaj lub edytuj wydarzenia</a>
+                          <a href="images.php" class="list-group-item">Dodaj lub edytuj zdjęcia</a>
+                          <a href="videos.php" class="list-group-item">Dodaj lub edytuj filmy</a>
+                          <a href="contact.php" class="list-group-item">Dodaj lub edytuj informacje kontaktowe</a>
+                          <a href="files.php" class="list-group-item">Edytuj pliki</a>
+                        </ul>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

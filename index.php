@@ -367,7 +367,7 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
             </section>
         </main>
         <footer>
-            <small>&copy; Marek Sładczyk 2017</small> <button id="modalOpen">Open Modal</button>
+            <small>&copy; Marek Sładczyk 2017</small>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.1/velocity.min.js" charset="utf-8"></script>
