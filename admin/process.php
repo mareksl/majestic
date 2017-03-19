@@ -202,7 +202,7 @@ $event_name = $_POST['event'];
 $event_city = $_POST['city'];
 $event_link = $_POST['link'];
 $event_date = $_POST['date'];
-$sql = "INSERT INTO tbl_events (venue, city, link, date) VALUES ('$event_name', '$event_name', '$event_link', '$event_date')";
+$sql = "INSERT INTO tbl_events (venue, city, link, date) VALUES ('$event_name', '$event_city', '$event_link', '$event_date')";
 if ($conn->query($sql) === true) {
     $data['success'] = true;
     $data['message'] = 'Dodano wydarzenie!';
@@ -212,7 +212,35 @@ if ($conn->query($sql) === true) {
 }
 echo json_encode($data);
 break;
+case 'edit_event':
+$event_id = $_POST['id'];
+$event_name = $_POST['event'];
+$event_city = $_POST['city'];
+$event_link = $_POST['link'];
+$event_date = $_POST['date'];
+$sql = "UPDATE tbl_events SET venue = '$event_name', city = '$event_city', link = '$event_link', date = '$event_date' WHERE ID = '$event_id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Edytowano wydarzenie!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
+case 'delete_event':
+    $id = $_POST['id'];
+$sql = "DELETE FROM tbl_events WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Usunięto wydarzenie!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
 
+break;
 // ADD Video
 case 'add_video':
     $vid = $_POST['vid'];
