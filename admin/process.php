@@ -140,47 +140,50 @@ $file_tmp = $_FILES['file']['tmp_name'];
 $file_size = $_FILES['file']['size'];
 $file_type = $_POST['filetype'];
 $file_extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-
-if (is_uploaded_file($file_tmp)) {
-    if ($file_type == 'presspack') {
-        $sql = 'SELECT filename FROM tbl_files WHERE filetype = "presspack"';
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $file = $row['filename'];
-                unlink('../files/'.$file);
+if ($_FILES['file']['size'] < 20971520) {
+    if (is_uploaded_file($file_tmp)) {
+        if ($file_type == 'presspack') {
+            $sql = 'SELECT filename FROM tbl_files WHERE filetype = "presspack"';
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $file = $row['filename'];
+                    @unlink('../files/'.$file);
+                }
             }
-        }
-        $file_name = 'presspack_'.str_pad(rand(0, 99999), 5, 0, STR_PAD_LEFT).'_'.date('Ymd').'.'.$file_extension;
-        if (@move_uploaded_file($file_tmp, "../files/$file_name")) {
-            $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'presspack')
+            $file_name = 'presspack_'.str_pad(rand(0, 99999), 5, 0, STR_PAD_LEFT).'_'.date('Ymd').'.'.$file_extension;
+            if (@move_uploaded_file($file_tmp, "../files/$file_name")) {
+                $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'presspack')
   ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
-            if ($conn->query($sql) !== true) {
-                $errors['upload'] = $conn->error;
+                if ($conn->query($sql) !== true) {
+                    $errors['upload'] = $conn->error;
+                }
+            } else {
+                $errors['upload'] = 'Nie udało się załadować pliku!';
             }
-        } else {
-            $errors['upload'] = 'Nie udało się załadować pliku!';
-        }
-    } elseif ($file_type == 'rider') {
-      $sql = 'SELECT filename FROM tbl_files WHERE filetype = "rider"';
-      $result = $conn->query($sql);
-      if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-              $file = $row['filename'];
-              unlink('../files/'.$file);
-          }
-      }
-      $file_name = 'rider_'.str_pad(rand(0, 999), 5, 0, STR_PAD_LEFT).'_'.date('Ymd').'.'.$file_extension;
-        if (@move_uploaded_file($file_tmp, "../files/$file_name")) {
-            $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
+        } elseif ($file_type == 'rider') {
+            $sql = 'SELECT filename FROM tbl_files WHERE filetype = "rider"';
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $file = $row['filename'];
+                    @unlink('../files/'.$file);
+                }
+            }
+            $file_name = 'rider_'.str_pad(rand(0, 999), 5, 0, STR_PAD_LEFT).'_'.date('Ymd').'.'.$file_extension;
+            if (@move_uploaded_file($file_tmp, "../files/$file_name")) {
+                $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
 ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
-            if ($conn->query($sql) !== true) {
-                $errors['upload'] = $conn->error;
+                if ($conn->query($sql) !== true) {
+                    $errors['upload'] = $conn->error;
+                }
+            } else {
+                $errors['upload'] = 'Nie udało się załadować pliku!';
             }
-        } else {
-            $errors['upload'] = 'Nie udało się załadować pliku!';
         }
     }
+} else {
+  $errors['upload'] = 'Rozmiar pliku za duży! Masymalny rozmiar to 20MB.';
 }
 if (!empty($errors)) {
     // if there are items in our errors array, return those errors
@@ -208,5 +211,52 @@ if ($conn->query($sql) === true) {
     $data['errors'] = $conn->error;
 }
 echo json_encode($data);
+break;
+
+// ADD Video
+case 'add_video':
+    $vid = $_POST['vid'];
+    $title = $conn->real_escape_string($_POST['title']);
+$sql = "INSERT INTO tbl_videos (vid, title)
+VALUES ('$vid', '$title')";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano wideo!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+
+break;
+// EDIT Video
+case 'edit_video':
+    $id = $_POST['id'];
+    $title = $conn->real_escape_string($_POST['title']);
+$sql = "UPDATE tbl_videos SET title='$title' WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Edytowano wideo!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+
+break;
+// DELETE Video
+case 'delete_video':
+    $id = $_POST['id'];
+$sql = "DELETE FROM tbl_videos WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Usunięto wideo!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+
+break;
 }
 $conn->close();

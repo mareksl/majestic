@@ -23,7 +23,8 @@
                         <h1 class="page-header">Blank</h1>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading" id="resp">Informacje o stronie</div>
+                            <div class="panel-heading" id="resp">Pliki
+                              <small>(Maksymalny rozmiar: 10MB)</small></div>
                             <div class="panel-body row">
                                 <form enctype="multipart/form-data" name="form-upload-presspack" class="col-md-6 form-group">
                                   <div class="well">
@@ -31,9 +32,8 @@
                                   <?php
                                   $sql = 'SELECT * FROM tbl_files WHERE filetype="presspack"';
                                   $result = $conn->query($sql);
-                                  while ($row = $result->fetch_assoc()) {echo $row['filename'] . "<br>" . $row['filesize']; }?></p>
+                                  while ($row = $result->fetch_assoc()) {echo $row['filename'] . "<br>" . round(($row['filesize']/1024), 2) . " KB"; }?></p>
                                 </div>
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
                                     <input type="hidden" name="process" value="upload_file">
                                     <input type="hidden" name="filetype" value="presspack">
                                     <fieldset class="form-group">
@@ -51,9 +51,8 @@
                                   <?php
                                   $sql = 'SELECT * FROM tbl_files WHERE filetype="rider"';
                                   $result = $conn->query($sql);
-                                  while ($row = $result->fetch_assoc()) {echo $row['filename'] . "<br>" . $row['filesize']; }?></p>
+                                  while ($row = $result->fetch_assoc()) {echo $row['filename'] . "<br>" . round(($row['filesize']/1024), 2) . " KB"; }?></p>
                                 </div>
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
                                     <input type="hidden" name="process" value="upload_file">
                                     <input type="hidden" name="filetype" value="rider">
                                     <fieldset class="form-group">
