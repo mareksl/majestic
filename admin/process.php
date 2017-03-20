@@ -53,6 +53,7 @@ case 'edit_details':
     // return all our data to an AJAX call
     echo json_encode($data);
 break;
+// ADD PICTURES
 case 'add_pictures':
 
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
@@ -197,6 +198,7 @@ if (!empty($errors)) {
 echo json_encode($data);
 
 break;
+// ADD EVENT
 case 'add_event':
 $event_name = $_POST['event'];
 $event_city = $_POST['city'];
@@ -212,6 +214,7 @@ if ($conn->query($sql) === true) {
 }
 echo json_encode($data);
 break;
+// EDIT EVENT
 case 'edit_event':
 $event_id = $_POST['id'];
 $event_name = $_POST['event'];
@@ -228,6 +231,7 @@ if ($conn->query($sql) === true) {
 }
 echo json_encode($data);
 break;
+// DELETE EVENT
 case 'delete_event':
     $id = $_POST['id'];
 $sql = "DELETE FROM tbl_events WHERE ID='$id'";
@@ -241,7 +245,7 @@ if ($conn->query($sql) === true) {
 echo json_encode($data);
 
 break;
-// ADD Video
+// ADD VIDEO
 case 'add_video':
     $vid = $_POST['vid'];
     $title = $conn->real_escape_string($_POST['title']);
@@ -285,6 +289,50 @@ if ($conn->query($sql) === true) {
 }
 echo json_encode($data);
 
+break;
+// ADD CONTACT
+case 'add_contact':
+$contact_person = $_POST['person'];
+$contact_email = $_POST['email'];
+$contact_phone = $_POST['phone'];
+$sql = "INSERT INTO tbl_contact (person, email, phone) VALUES ('$contact_person', '$contact_email', '$contact_phone')";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano kontakt!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
+// EDIT CONTACT
+case 'edit_contact':
+$id = $_POST['id'];
+$contact_person = $_POST['person'];
+$contact_email = $_POST['email'];
+$contact_phone = $_POST['phone'];
+$sql = "UPDATE tbl_contact SET person = '$contact_person', email = '$contact_email', phone = '$contact_phone' WHERE ID = '$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Edytowano kontakt!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
+// DELETE CONTACT
+case 'delete_contact':
+$id = $_POST['id'];
+$sql = "DELETE FROM tbl_contact WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+$data['success'] = true;
+$data['message'] = 'Usunięto kontakt!';
+} else {
+$data['success'] = false;
+$data['errors'] = $conn->error;
+}
+echo json_encode($data);
 break;
 }
 $conn->close();

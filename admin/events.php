@@ -96,8 +96,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary" form="edit_event_<?php echo $row['ID']; ?>">Edit Link</button>
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                                            <button type="submit" class="btn btn-primary" form="edit_event_<?php echo $row['ID']; ?>">Edytuj wydarzenie</button>
                                                         </div>
                                                     </div>
                                                     <!-- /.modal-content -->
