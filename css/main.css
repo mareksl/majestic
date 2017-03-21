@@ -301,6 +301,26 @@ strong {
   font-variant: small-caps; }
 
 /* TYPOGRAPHY END */
+::-moz-selection {
+  background: #ffcb04;
+  color: #231f20;
+  text-shadow: none; }
+
+::selection {
+  background: #ffcb04;
+  color: #231f20;
+  text-shadow: none; }
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
 header {
   z-index: 2;
   transition: .4s ease;
