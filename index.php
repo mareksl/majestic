@@ -23,7 +23,7 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
 
 <body id="home">
     <header>
-        <nav>
+        <nav class="menu">
             <a href="#home"><h1><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="337.3" height="108.185" viewBox="0 0 337.3 108.185" aria-labelledby="mainLogoTitle">
               <title id="mainLogoTitle">Majestic Reggae & Ska Band</title>
               <path class="logo-outline" fill-rule="evenodd" clip-rule="evenodd" fill="#231F20" d="M1.186 26.77l31.54-17.608 9.51 29.285 9.962-33.42L75.718 0l.48 42.902 6.546-1.06 3.908-23.32 33.085-4.526.774 6.335 4.11-6.51 35.07-2.41.06 8.69 36.1-1.2 24.56-7.54 13.46 15.81-.18-8.02L285.9 32.1l.72 14.484 9.76 1.698 12.38-11.68 27.71 15.338.085 19.67-14.955-.446-.592 12.53 16.295 2.25-8.28 21.28-27.687-3.56-4.63-20.84-4.2.34-3.772 24.64-15.696-2.76-.854-31.802-2.94-.234-3.11-.19.35 29.948-24.24 1.7 1.05-28.99-6.81 1.57-3.26 22.925-35.19.2-1.17-4.66-3.05-.78-35.298-1.48-.37-10.06-15.41 20.28-25.494-2.57-20.51 3.18.33-27.46-6.59.97.823 20.31-16.573.74.004 9.47-21.04.11 2.94-26.05-10.58 25.24-13.4-31.34 1.12 25.83-23.63.64 1.72-54.04L0 51.08l1.186-24.31"/>
@@ -294,43 +294,43 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
           							<div class="video">
           								<span class="video-title">Majestic - Boberek # Woodstock 2016 Live</span>
           								<div class="youtube" data-embed="pFoSLLoRYMQ">
-          									<span class="fa fa-4x fa-play"></span>
+          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
           							<div class="video">
           								<span class="video-title">Majestic - Nie oglądaj się # Woodstock 2016 Live</span>
           								<div class="youtube" data-embed="m2OEg1wI4QM">
-          									<span class="fa fa-4x fa-play"></span>
+          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
           							<div class="video">
           								<span class="video-title">Majestic - Wielka moc # Woodstock 216 Live</span>
           								<div class="youtube" data-embed="civcLRSmpVQ">
-          									<span class="fa fa-4x fa-play"></span>
+          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
           							<div class="video">
           								<span class="video-title">Majestic - Połączmy nasze serca # Woodstock 2016 Live</span>
           								<div class="youtube" data-embed="3XKajzVTztg">
-          									<span class="fa fa-4x fa-play"></span>
+          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
           							<div class="video">
           								<span class="video-title">Majetsic - SŁOWA, SŁOWA</span>
           								<div class="youtube" data-embed="eQV4BVzPAxY">
-          									<span class="fa fa-4x fa-play"></span>
+          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
           							<div class="video">
           								<span class="video-title">Majestic MI-ŁO-Ś-Ć</span>
           								<div class="youtube" data-embed="USfeWUtLEdg">
-          									<span class="fa fa-4x fa-play"></span>
+          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
           							<div class="video">
           								<span class="video-title">Majestic - TATKO</span>
           								<div class="youtube" data-embed="5Gcnem-Elk0">
-          									<span class="fa fa-4x fa-play"></span>
+          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
           						</div>

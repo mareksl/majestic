@@ -1,0 +1,40 @@
+- Postarałbym się o ładniejsze style dla `:focus` – zwłaszcza, że natywny outline ciut haczy przy kilku elementach, którym włączają się style z `:hover`.
+
+- Nie no, przewijanie zmienia adres – duży, duży plus ^^
+
+// - Czemu przyciski odtwarzania na klipach nie są przyciskami? Przez to nie da się do nich dostać z poziomu klawiatury.
+
+- Zastanawiam się, czy do `svg.logo` nie dodać `[role=img]`.
+
+- ```html
+<a href="https://www.facebook.com/majesticreggae/" aria-label="Facebook" target="_blank">
+<span class="fa fa-facebook-square" aria-hidden="true"></span>
+</a>
+```
+Osobiście optuję mimo wszystko za dodaniem `span.visuallyhidden` zamiast `[aria-label]`, bo to pokryje też te rzadkie przypadki, gdy CSS się nie wczyta.
+
+- No i zamiast pustych `.col.col-4` nie lepiej byłoby zastosować coś typu `.col-offset` (jak to robi BS)?
+
+- Członków zespołu raczej bym zrobił na liście niż `figure`.
+
+- Podoba mi się zastosowanie `time` w koncertach.
+
+- Za to drażni mnie parallax. Nie dałoby się zastosować do tego pseudoelementów?
+
+- ```html
+<span class="fa fa-4x fa-play"></span>
+```
+To powinny być ładne, dostępne przyciski.
+
+- ```html
+<a href="#"><span class="fa fa-envelope fa-fw"></span>loremiusz@ipsum.pl</a>
+```
+W tym wypadku ikonka niesie informację (mówi, jaki to typ danej kontaktowej), stąd powinna mieć tekstową alternatywę. No i gdzie `[aria-hidden=true]` dla samej ikonki?
+
+- Bardzo ładna hierarchia nagłówków
+
+- Chociaż IMO jest za to lekki divitis.
+
+// - Stylujesz bezpośrednio `nav` – a co jak pojawi się inny element nawigacyjny na stronie?
+
+// - `.modal-window .modal-title` – czy klasa `.modal-title` nie wskazuje wyraźnie, że to część modala? W takim wypadku to `.modal-window` jest zbędne.
