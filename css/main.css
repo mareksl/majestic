@@ -282,7 +282,7 @@ a {
   transition: .4s;
   text-decoration: none;
   color: #733236; }
-  a:hover, a:focus {
+  a:focus, a:hover {
     text-decoration: underline;
     color: #853109; }
   a:active {
@@ -347,6 +347,9 @@ header {
     display: block;
     text-decoration: none;
     color: #231f20; }
+    .menu a:focus, .menu a:hover {
+      text-decoration: underline;
+      color: #853109; }
   .menu h1 {
     display: block;
     height: 4rem;
