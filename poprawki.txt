@@ -1,7 +1,5 @@
 - Postarałbym się o ładniejsze style dla `:focus` – zwłaszcza, że natywny outline ciut haczy przy kilku elementach, którym włączają się style z `:hover`.
 
-- Zastanawiam się, czy do `svg.logo` nie dodać `[role=img]`.
-
 - No i zamiast pustych `.col.col-4` nie lepiej byłoby zastosować coś typu `.col-offset` (jak to robi BS)?
 
 - Członków zespołu raczej bym zrobił na liście niż `figure`.
@@ -22,6 +20,8 @@
 //Osobiście optuję mimo wszystko za dodaniem `span.visuallyhidden` zamiast `[aria-label]`, bo to pokryje też te rzadkie przypadki, gdy CSS się nie wczyta.
 
 // - Czemu przyciski odtwarzania na klipach nie są przyciskami? Przez to nie da się do nich dostać z poziomu klawiatury.
+
+// - Zastanawiam się, czy do `svg.logo` nie dodać `[role=img]`.
 
 // - Podoba mi się zastosowanie `time` w koncertach.
 

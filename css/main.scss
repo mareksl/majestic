@@ -67,6 +67,12 @@ header {
 		display: block;
 		text-decoration: none;
 		color: $primary-color-dark;
+
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+			color: $primary-color;
+		}
 	}
 
 	h1 {
