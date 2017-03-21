@@ -13,6 +13,30 @@ $box-shadow: 0 1rem .5rem -1rem rgba($primary-color-dark, .5);
 $box-shadow-light: 0 .4rem .8rem -.4rem $primary-color-dark;
 $box-shadow-hover: 0 .25rem 1rem -.25rem $accent-color-dark;
 
+::-moz-selection {
+	background: $accent-color-light;
+	color: $primary-color-dark;
+	text-shadow: none;
+}
+
+::selection {
+	background: $accent-color-light;
+	color: $primary-color-dark;
+	text-shadow: none;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
 header {
 	z-index: 2;
 	transition: .4s ease;

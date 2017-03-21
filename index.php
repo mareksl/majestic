@@ -78,17 +78,20 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                 while ($row = $result->fetch_assoc()) {
                     ?>
                 <li>
-                    <a href="<?php echo $row['link_facebook']; ?>" aria-label="Facebook" target="_blank">
+                    <a href="<?php echo $row['link_facebook']; ?>" target="_blank">
+											<span class="visuallyhidden">Facebook</span>
                         <span class="fa fa-facebook-square" aria-hidden="true"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $row['link_spotify']; ?>" aria-label="Spotify" target="_blank">
+                    <a href="<?php echo $row['link_spotify']; ?>" target="_blank">
+											<span class="visuallyhidden">Spotify</span>
                         <span class="fa fa-spotify" aria-hidden="true"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $row['link_youtube']; ?>" aria-label="YouTube" target="_blank">
+                    <a href="<?php echo $row['link_youtube']; ?>" target="_blank">
+											<span class="visuallyhidden">YouTube</span>
                         <span class="fa fa-youtube" aria-hidden="true"></span>
                     </a>
                 </li>
