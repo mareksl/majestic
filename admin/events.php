@@ -73,8 +73,9 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="form-group">
-                                                                <form role="form" action="process.php" method="post" id="edit_event_<?php echo $row['ID']; ?>" name="form-edit-event">
-                                                                    <input type="hidden" name="process" value="add_event">
+                                                                <form name="form-edit-event" id="edit_event_<?php echo $row['ID']; ?>" name="form-edit-event">
+                                                                    <input type="hidden" name="process" value="edit_event">
+                                                                    <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
                                                                     <div class="form-group">
                                                                         <label>Wydarzenie: </label>
                                                                         <input class="form-control" name="event" placeholder="Wydarzenie" required value="<?php echo $row['venue']; ?>" />
@@ -95,8 +96,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary" form="edit_link_<?php echo $row[' ID ']; ?>">Edit Link</button>
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                                            <button type="submit" class="btn btn-primary" form="edit_event_<?php echo $row['ID']; ?>">Edytuj wydarzenie</button>
                                                         </div>
                                                     </div>
                                                     <!-- /.modal-content -->
@@ -113,8 +114,8 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="form-group">
-                                                                <form role="form" action="process.php" method="post" class="" id="delete_link_<?php echo $row['ID']; ?>">
-                                                                    <input type="hidden" name="process" value="delete_link">
+                                                                <form name="form-delete-event" id="delete_event_<?php echo $row['ID']; ?>">
+                                                                    <input type="hidden" name="process" value="delete_event">
                                                                     <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
                                                                     <div class="alert alert-warning">Czy na pewno chcesz usunąć to wydarzenie? </div>
                                                                     <div class="well">
@@ -135,8 +136,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary" form="delete_link_<?php echo $row['ID']; ?>">Delete Link</button>
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                                            <button type="submit" class="btn btn-primary" form="delete_event_<?php echo $row['ID']; ?>">Usuń wydarzenie</button>
                                                         </div>
                                                     </div>
                                                     <!-- /.modal-content -->

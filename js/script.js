@@ -10,17 +10,22 @@ var $ = function (elem) {
 };
 // Selectors
 // Parallax
-document.addEventListener("scroll", function () {
-  var scrolledHeight = window.pageYOffset || document.documentElement.scrollTop;
+function isMobile() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+if (!isMobile()) {
+  document.addEventListener("scroll", function () {
+    var scrolledHeight = window.pageYOffset || document.documentElement.scrollTop;
 
-  $$(".row-parallax").forEach(function (el) {
-    if (scrolledHeight <= el.offsetTop + el.offsetHeight) {
-      el.style.backgroundPositionY = ((scrolledHeight - el.offsetTop) / -2) - (el.offsetHeight / 2) + "px";
-    } else {
-      el.style.backgroundPositionY = "center";
-    }
+    $$(".row-parallax").forEach(function (el) {
+      if (scrolledHeight <= el.offsetTop + el.offsetHeight) {
+        el.style.backgroundPositionY = ((scrolledHeight - el.offsetTop) / -2) - (el.offsetHeight / 2) + "px";
+      } else {
+        el.style.backgroundPositionY = "center";
+      }
+    });
   });
-});
+}
 // Parallax
 // Smooth Scroll
 document.addEventListener('DOMContentLoaded', function navScroll() {
@@ -123,7 +128,7 @@ function modalShow(link) {
     // Velocity(modal, "fadeOut", {
     //   duration: 2000
     // }).then(function () {
-      document.body.removeChild($('#modal'));
+    document.body.removeChild($('#modal'));
     // });
   }
 }

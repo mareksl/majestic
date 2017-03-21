@@ -53,6 +53,7 @@ case 'edit_details':
     // return all our data to an AJAX call
     echo json_encode($data);
 break;
+// ADD PICTURES
 case 'add_pictures':
 
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
@@ -140,37 +141,70 @@ $file_tmp = $_FILES['file']['tmp_name'];
 $file_size = $_FILES['file']['size'];
 $file_type = $_POST['filetype'];
 $file_extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-
-if (is_uploaded_file($file_tmp)) {
-    if ($file_type == 'presspack') {
-        $file_name = 'presspack.'.$file_extension;
-        move_uploaded_file($file_tmp, "../files/$file_name");
-        $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'presspack')
+if ($_FILES['file']['size'] < 20971520) {
+    if (is_uploaded_file($file_tmp)) {
+        if ($file_type == 'presspack') {
+            $sql = 'SELECT filename FROM tbl_files WHERE filetype = "presspack"';
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $file = $row['filename'];
+                    @unlink('../files/'.$file);
+                }
+            }
+            $file_name = 'presspack_'.str_pad(rand(0, 99999), 5, 0, STR_PAD_LEFT).'_'.date('Ymd').'.'.$file_extension;
+            if (@move_uploaded_file($file_tmp, "../files/$file_name")) {
+                $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'presspack')
   ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
-    } elseif ($file_type == 'rider') {
-      $file_name = 'rider.'.$file_extension;
-      move_uploaded_file($file_tmp, "../files/$file_name");
-      $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
+                if ($conn->query($sql) !== true) {
+                    $errors['upload'] = $conn->error;
+                }
+            } else {
+                $errors['upload'] = 'Nie udało się załadować pliku!';
+            }
+        } elseif ($file_type == 'rider') {
+            $sql = 'SELECT filename FROM tbl_files WHERE filetype = "rider"';
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $file = $row['filename'];
+                    @unlink('../files/'.$file);
+                }
+            }
+            $file_name = 'rider_'.str_pad(rand(0, 999), 5, 0, STR_PAD_LEFT).'_'.date('Ymd').'.'.$file_extension;
+            if (@move_uploaded_file($file_tmp, "../files/$file_name")) {
+                $sql = "INSERT INTO tbl_files (filename,filesize,filetype) VALUES ('$file_name', '$file_size', 'rider')
 ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
+                if ($conn->query($sql) !== true) {
+                    $errors['upload'] = $conn->error;
+                }
+            } else {
+                $errors['upload'] = 'Nie udało się załadować pliku!';
+            }
+        }
     }
+} else {
+  $errors['upload'] = 'Rozmiar pliku za duży! Masymalny rozmiar to 20MB.';
 }
-if ($conn->query($sql) === true) {
+if (!empty($errors)) {
+    // if there are items in our errors array, return those errors
+    $data['success'] = false;
+    $data['errors'] = $errors;
+} else {
     $data['success'] = true;
     $data['message'] = 'Dodano plik!';
-} else {
-    $data['success'] = false;
-    $data['errors'] = $conn->error;
 }
 
 echo json_encode($data);
 
 break;
+// ADD EVENT
 case 'add_event':
 $event_name = $_POST['event'];
 $event_city = $_POST['city'];
 $event_link = $_POST['link'];
 $event_date = $_POST['date'];
-$sql = "INSERT INTO tbl_events (venue, city, link, date) VALUES ('$event_name', '$event_name', '$event_link', '$event_date')";
+$sql = "INSERT INTO tbl_events (venue, city, link, date) VALUES ('$event_name', '$event_city', '$event_link', '$event_date')";
 if ($conn->query($sql) === true) {
     $data['success'] = true;
     $data['message'] = 'Dodano wydarzenie!';
@@ -179,5 +213,126 @@ if ($conn->query($sql) === true) {
     $data['errors'] = $conn->error;
 }
 echo json_encode($data);
+break;
+// EDIT EVENT
+case 'edit_event':
+$event_id = $_POST['id'];
+$event_name = $_POST['event'];
+$event_city = $_POST['city'];
+$event_link = $_POST['link'];
+$event_date = $_POST['date'];
+$sql = "UPDATE tbl_events SET venue = '$event_name', city = '$event_city', link = '$event_link', date = '$event_date' WHERE ID = '$event_id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Edytowano wydarzenie!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
+// DELETE EVENT
+case 'delete_event':
+    $id = $_POST['id'];
+$sql = "DELETE FROM tbl_events WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Usunięto wydarzenie!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+
+break;
+// ADD VIDEO
+case 'add_video':
+    $vid = $_POST['vid'];
+    $title = $conn->real_escape_string($_POST['title']);
+$sql = "INSERT INTO tbl_videos (vid, title)
+VALUES ('$vid', '$title')";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano wideo!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+
+break;
+// EDIT Video
+case 'edit_video':
+    $id = $_POST['id'];
+    $title = $conn->real_escape_string($_POST['title']);
+$sql = "UPDATE tbl_videos SET title='$title' WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Edytowano wideo!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+
+break;
+// DELETE Video
+case 'delete_video':
+    $id = $_POST['id'];
+$sql = "DELETE FROM tbl_videos WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Usunięto wideo!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+
+break;
+// ADD CONTACT
+case 'add_contact':
+$contact_person = $_POST['person'];
+$contact_email = $_POST['email'];
+$contact_phone = $_POST['phone'];
+$sql = "INSERT INTO tbl_contact (person, email, phone) VALUES ('$contact_person', '$contact_email', '$contact_phone')";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Dodano kontakt!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
+// EDIT CONTACT
+case 'edit_contact':
+$id = $_POST['id'];
+$contact_person = $_POST['person'];
+$contact_email = $_POST['email'];
+$contact_phone = $_POST['phone'];
+$sql = "UPDATE tbl_contact SET person = '$contact_person', email = '$contact_email', phone = '$contact_phone' WHERE ID = '$id'";
+if ($conn->query($sql) === true) {
+    $data['success'] = true;
+    $data['message'] = 'Edytowano kontakt!';
+} else {
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
+// DELETE CONTACT
+case 'delete_contact':
+$id = $_POST['id'];
+$sql = "DELETE FROM tbl_contact WHERE ID='$id'";
+if ($conn->query($sql) === true) {
+$data['success'] = true;
+$data['message'] = 'Usunięto kontakt!';
+} else {
+$data['success'] = false;
+$data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
 }
 $conn->close();
