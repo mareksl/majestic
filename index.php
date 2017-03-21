@@ -355,20 +355,20 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                               while ($row = $result->fetch_assoc()) {
                                   ?>
                             <address class="">
-                              <p><span class="fa fa-user fa-fw"></span><span><?php echo $row['person']; ?></span><br>
-                                  <a href="#"><span class="fa fa-envelope fa-fw"></span><?php echo $row['email']; ?></a><br>
-                                  <a href="tel:+48-123-456-789"><span class="fa fa-phone fa-fw"></span><?php echo $row['phone']; ?></a>
+                              <p><span class="fa fa-user fa-fw" aria-hidden="true"></span><span><?php echo $row['person']; ?></span><br>
+                                  <a href="#"><span class="fa fa-envelope fa-fw" aria-hidden="true" aria-label="Email"></span><?php echo $row['email']; ?></a><br>
+                                  <a href="tel:+48-123-456-789"><span class="fa fa-phone fa-fw" aria-hidden="true" aria-label="Telefon"></span><?php echo $row['phone']; ?></a>
                               </p>
                             </address>
                             <?php }}?>
-                            <p><span class="fa fa-file fa-fw"></span><span>Dokumenty</span><br>
+                            <p><span class="fa fa-file fa-fw" aria-hidden="true"></span><span>Dokumenty</span><br>
                               <?php
                               $sql = 'SELECT * FROM tbl_files WHERE filetype = "presspack"';
                               $result = $conn->query($sql);
                               if ($result->num_rows > 0) {
                                   while ($row = $result->fetch_assoc()) {
                                       ?>
-                                <a href="files/<?php echo $row['filename']; ?>"><span class="fa fa-download fa-fw"></span>Press Pack</a><br>
+                                <a href="files/<?php echo $row['filename']; ?>"><span class="fa fa-download fa-fw" aria-hidden="true"></span>Press Pack</a><br>
                               <?php }}?>
                               <?php
                               $sql = 'SELECT * FROM tbl_files WHERE filetype = "rider"';
@@ -376,7 +376,7 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                               if ($result->num_rows > 0) {
                                   while ($row = $result->fetch_assoc()) {
                                       ?>
-                                <a href="files/<?php echo $row['filename']; ?>"><span class="fa fa-download fa-fw"></span>Rider</a><br>
+                                <a href="files/<?php echo $row['filename']; ?>"><span class="fa fa-download fa-fw" aria-hidden="true"></span>Rider</a><br>
                               <?php }}?>
 
                             </p>
