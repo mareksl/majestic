@@ -1,3 +1,4 @@
+<?php require_once 'header.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -37,7 +38,10 @@
                                                     <input type="hidden" name="process" value="add_video">
                                                     <div class="form-group">
                                                         <label>ID Wideo: </label>
-                                                        <input id="vid-id" type="text" class="form-control" name="vid" placeholder="ID Wideo" required>
+																												<div class="input-group">
+																											  	<span class="input-group-addon">https://www.youtube.com/watch?v=</span>
+																													<input id="vid-id" type="text" class="form-control" name="vid" placeholder="ID Wideo" required>
+																												</div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tytuł: </label>
