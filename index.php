@@ -188,8 +188,7 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                                           } ?>"></a>
                           <?php
                               }
-                          }
-                          ?>
+                          } else { ?><div>Nie ma nic do wyświetlenia.</div><?php } ?>
                         </div>
                         <div class="col col-2"></div>
                     </div>
@@ -205,83 +204,37 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
 
                             <h3>Nadchodzące</h3>
                             <ul class="events">
+                              <?php
+                              $date_time = date('Y-m-d H:i:s');
+                              $sql = "SELECT * FROM tbl_events WHERE date>='$date_time' ORDER BY date ASC";
+                              $result = $conn->query($sql);
+                              if ($result->num_rows > 0) {
+                                  while ($row = $result->fetch_assoc()) {
+                                    $date = date('Y-m-d', strtotime($row['date']));
+                                    $date_day = date('d.m', strtotime($row['date']));
+                                    $date_year = date('Y', strtotime($row['date']));
+                                      ?>
                                 <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Warszawa</span><span class="event-location"><a href="#">ABC</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Nowy Dwór Mazowiecki</span><span class="event-location"><a href="#">Klub z długą nazwą hahaha</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
+                                    <time datetime="<?php echo $date;?>" class="event-date-full"><span class="event-date"><?php echo $date_day;?></span><span class="event-year"><?php echo $date_year;?></span></time><span class="event-city"><?php echo $row['city'];?></span><span class="event-location"><a href="<?php echo $row['link'];?>"><?php echo $row['venue'];?></a></span></li>
+                                    <?php }} else { ?><li>Nie ma nic do wyświetlenia.</li><?php } ?>
                             </ul>
                             <h3>Przeszłe</h3>
                             <ul class="events events-future">
+                              <?php
+                              $date_time = date('Y-m-d H:i:s');
+                              $sql = "SELECT * FROM tbl_events WHERE date<'$date_time' ORDER BY date DESC";
+                              $result = $conn->query($sql);
+                              if ($result->num_rows > 0) {
+                                  while ($row = $result->fetch_assoc()) {
+                                    $date = date('Y-m-d', strtotime($row['date']));
+                                    $date_day = date('d.m', strtotime($row['date']));
+                                    $date_year = date('Y', strtotime($row['date']));
+                                      ?>
                                 <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Warszawa</span><span class="event-location"><a href="#">ABC</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Nowy Dwór Mazowiecki</span><span class="event-location"><a href="#">Klub z długą nazwą hahaha</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Warszawa</span><span class="event-location"><a href="#">ABC</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Nowy Dwór Mazowiecki</span><span class="event-location"><a href="#">Klub z długą nazwą hahaha</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Warszawa</span><span class="event-location"><a href="#">ABC</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Nowy Dwór Mazowiecki</span><span class="event-location"><a href="#">Klub z długą nazwą hahaha</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Warszawa</span><span class="event-location"><a href="#">ABC</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Nowy Dwór Mazowiecki</span><span class="event-location"><a href="#">Klub z długą nazwą hahaha</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Warszawa</span><span class="event-location"><a href="#">ABC</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Nowy Dwór Mazowiecki</span><span class="event-location"><a href="#">Klub z długą nazwą hahaha</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
-                                <li>
-                                    <time datetime="2016-02-23" class="event-date-full"><span class="event-date">23.02</span><span class="event-year">2017</span></time><span class="event-city">Gdańsk</span><span class="event-location"><a href="#">Mono Kitchen</a></span></li>
+                                    <time datetime="<?php echo $date;?>" class="event-date-full"><span class="event-date"><?php echo $date_day;?></span><span class="event-year"><?php echo $date_year;?></span></time><span class="event-city"><?php echo $row['city'];?></span><span class="event-location"><a href="<?php echo $row['link'];?>"><?php echo $row['venue'];?></a></span></li>
+                                    <?php }} else { ?><li>Nie ma nic do wyświetlenia.</li><?php } ?>
                             </ul>
-                            <button class="events-more">Pokaż więcej</button>
+                            <button class="events-more">Pokaż wcześniejsze</button>
                         </div>
                         <div class="col col-3"></div>
                     </div>
@@ -306,7 +259,7 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
           									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
-												<?php }} ?>
+												<?php }} else { ?><div>Nie ma nic do wyświetlenia.</div><?php } ?>
           						</div>
           						<div class="col col-2"></div>
           					</div>
@@ -358,7 +311,7 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
             </section>
         </main>
         <footer>
-            <small>&copy; Marek Sładczyk 2017</small>
+            <small>&copy; <a href="https://github.com/mareksl">Marek Sładczyk 2017</a> <a href="admin"><span class="fa fa-fw fa-cog"></span></a></small>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.1/velocity.min.js" charset="utf-8"></script>

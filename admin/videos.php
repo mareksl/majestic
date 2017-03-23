@@ -39,7 +39,7 @@
                                                     <div class="form-group">
                                                         <label>ID Wideo: </label>
 																												<div class="input-group">
-																											  	<span class="input-group-addon">https://www.youtube.com/watch?v=</span>
+																											  	<span class="input-group-addon">watch?v=</span>
 																													<input id="vid-id" type="text" class="form-control" name="vid" placeholder="ID Wideo" required>
 																												</div>
                                                     </div>
@@ -138,7 +138,10 @@
                                                                         <input type="hidden" name="id" value="<?php echo $row["ID"];?>">
                                                                         <div class="form-group">
                                                                             <label>ID Wideo: </label>
-                                                                            <input class="form-control" placeholder="<?php echo $row["vid"];?>" disabled="" type="text">
+                                                                            <div class="input-group">
+                                                                              <span class="input-group-addon">watch?v=</span>
+                                                                              <input class="form-control" placeholder="<?php echo $row["vid"];?>" disabled="" type="text">
+                                                                            </div>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Tytuł: </label>
