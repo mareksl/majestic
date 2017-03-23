@@ -294,48 +294,19 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                     <div class="row">
           						<div class="col col-2"></div>
           						<div class="col col-8 video-gallery">
+												<?php
+												$sql = 'SELECT * FROM tbl_videos';
+						            $result = $conn->query($sql);
+						            if ($result->num_rows > 0) {
+						                while ($row = $result->fetch_assoc()) {
+						                    ?>
           							<div class="video">
-          								<span class="video-title">Majestic - Boberek # Woodstock 2016 Live</span>
-          								<div class="youtube" data-embed="pFoSLLoRYMQ">
+          								<span class="video-title"><?php echo $row['title']; ?></span>
+          								<div class="youtube" data-embed="<?php echo $row['vid']; ?>">
           									<button aria-label="Play" class="fa fa-4x fa-play"></button>
           								</div>
           							</div>
-          							<div class="video">
-          								<span class="video-title">Majestic - Nie oglądaj się # Woodstock 2016 Live</span>
-          								<div class="youtube" data-embed="m2OEg1wI4QM">
-          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
-          								</div>
-          							</div>
-          							<div class="video">
-          								<span class="video-title">Majestic - Wielka moc # Woodstock 216 Live</span>
-          								<div class="youtube" data-embed="civcLRSmpVQ">
-          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
-          								</div>
-          							</div>
-          							<div class="video">
-          								<span class="video-title">Majestic - Połączmy nasze serca # Woodstock 2016 Live</span>
-          								<div class="youtube" data-embed="3XKajzVTztg">
-          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
-          								</div>
-          							</div>
-          							<div class="video">
-          								<span class="video-title">Majetsic - SŁOWA, SŁOWA</span>
-          								<div class="youtube" data-embed="eQV4BVzPAxY">
-          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
-          								</div>
-          							</div>
-          							<div class="video">
-          								<span class="video-title">Majestic MI-ŁO-Ś-Ć</span>
-          								<div class="youtube" data-embed="USfeWUtLEdg">
-          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
-          								</div>
-          							</div>
-          							<div class="video">
-          								<span class="video-title">Majestic - TATKO</span>
-          								<div class="youtube" data-embed="5Gcnem-Elk0">
-          									<button aria-label="Play" class="fa fa-4x fa-play"></button>
-          								</div>
-          							</div>
+												<?php }} ?>
           						</div>
           						<div class="col col-2"></div>
           					</div>
