@@ -280,8 +280,8 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                                   ?>
                             <address class="">
                               <p><span class="fa fa-user fa-fw" aria-hidden="true"></span><span><?php echo $row['person']; ?></span><br>
-                                  <a href="#"><span class="fa fa-envelope fa-fw" aria-hidden="true" aria-label="Email"></span><?php echo $row['email']; ?></a><br>
-                                  <a href="tel:+48-123-456-789"><span class="fa fa-phone fa-fw" aria-hidden="true" aria-label="Telefon"></span><?php echo $row['phone']; ?></a>
+                                  <a href="mailto:<?php echo $row['email']; ?>"><span class="fa fa-envelope fa-fw" aria-hidden="true" aria-label="Email"></span><?php echo $row['email']; ?></a><br>
+                                  <a href="tel:<?php echo $row['phone']; ?>"><span class="fa fa-phone fa-fw" aria-hidden="true" aria-label="Telefon"></span><?php echo $row['phone']; ?></a>
                               </p>
                             </address>
                             <?php }}?>

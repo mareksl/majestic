@@ -84,6 +84,7 @@
                                                                     <div class="form-group">
                                                                         <label>Telefon: </label>
                                                                         <input class="form-control" name="phone" placeholder="Telefon" required value="<?php echo $row['phone']; ?>"/>
+																																				<p class="help-block">Format: same liczby, z kodem kierunkowym na początku (np. 48123456789).</p>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -177,6 +178,7 @@
                             <div class="form-group">
                                 <label>Telefon: </label>
                                 <input class="form-control" name="phone" placeholder="Telefon" required />
+																<p class="help-block">Format: same liczby, z kodem kierunkowym na początku (np. 48123456789).</p>
                             </div>
                         </form>
                     </div>
