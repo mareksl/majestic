@@ -66,7 +66,7 @@
                 </li>
                 <?php }?>
                 <li>
-                  <a href="#"><small>&copy; Marek Sładczyk 2017</small></a>
+                  <a href="https://github.com/mareksl"><small>&copy; Marek Sładczyk 2017</small></a>
                 </li>
             </ul>
         </div>
