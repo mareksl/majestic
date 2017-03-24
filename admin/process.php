@@ -300,19 +300,19 @@ if (empty($_POST['email'])) {
 if (empty($_POST['phone'])) {
 		$errors['phone'] = 'Uzupełnij numer telefonu!';
 }
-$phone = $_POST['phone'];
-if (!preg_match('/^\d{11}$/', $phone)) {
-		$errors['phone'] = 'Numer telefonu niepoprawny!';
-}
 
 if (!empty($errors)) {
 		// if there are items in our errors array, return those errors
 		$data['success'] = false;
 		$data['errors'] = $errors;
 } else {
+	function localize_number($phone) {
+	  $numbers_only = preg_replace("/[^\d]/", "", $phone);
+	  return preg_replace("/^(\d{2})(\d{3})(\d{3})(\d{3})$/", "+$1-$2-$3-$4", $numbers_only);
+	}
 $contact_person = $_POST['person'];
 $contact_email = $_POST['email'];
-$contact_phone = $_POST['phone'];
+$contact_phone = localize_number($_POST['phone']);
 $sql = "INSERT INTO tbl_contact (person, email, phone) VALUES ('$contact_person', '$contact_email', '$contact_phone')";
 if ($conn->query($sql) === true) {
     $data['success'] = true;
