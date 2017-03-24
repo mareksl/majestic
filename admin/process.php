@@ -291,6 +291,25 @@ echo json_encode($data);
 break;
 // ADD CONTACT
 case 'add_contact':
+if (empty($_POST['person'])) {
+		$errors['person'] = 'Uzupełnij imię!';
+}
+if (empty($_POST['email'])) {
+		$errors['email'] = 'Uzupełnij adres email!';
+}
+if (empty($_POST['phone'])) {
+		$errors['phone'] = 'Uzupełnij numer telefonu!';
+}
+$phone = $_POST['phone'];
+if (!preg_match('/^\d{11}$/', $phone)) {
+		$errors['phone'] = 'Numer telefonu niepoprawny!';
+}
+
+if (!empty($errors)) {
+		// if there are items in our errors array, return those errors
+		$data['success'] = false;
+		$data['errors'] = $errors;
+} else {
 $contact_person = $_POST['person'];
 $contact_email = $_POST['email'];
 $contact_phone = $_POST['phone'];
@@ -301,7 +320,7 @@ if ($conn->query($sql) === true) {
 } else {
     $data['success'] = false;
     $data['errors'] = $conn->error;
-}
+}}
 echo json_encode($data);
 break;
 // EDIT CONTACT
