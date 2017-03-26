@@ -68,12 +68,10 @@
                                                         </div>
                                                         <div class="well" id="randompass" style="display:none;"></div>
                                                     </div>
-                                                    <div id="passgroup_new" class="form-group">
+                                                    <div class="form-group">
                                                         <label>Potwierdź nowe hasło: </label>
                                                         <input id="conf_pass_new" type="password" class="form-control" name="password_confirm" required />
-                                                        <p id="passerror_new" class="help-block text-danger"></p>
                                                     </div>
-
                                                 </form>
                                             </div>
                                             <div class="panel-footer text-right">
