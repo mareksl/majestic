@@ -32,7 +32,7 @@
                           <a href="videos.php" class="list-group-item">Dodaj lub edytuj filmy</a>
                           <a href="contact.php" class="list-group-item">Dodaj lub edytuj informacje kontaktowe</a>
                           <a href="files.php" class="list-group-item">Edytuj pliki</a>
-                        </ul>
+                        </div>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
