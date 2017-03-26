@@ -33,3 +33,13 @@
 .img-vid {
   margin: 0 auto;
 }
+.dropdown-user1 {
+  right: 0;
+  left: auto;
+}
+@media (max-width: 767px) {
+.dropdown-user1 {
+    right: auto;
+    left: 0;
+  }
+}
