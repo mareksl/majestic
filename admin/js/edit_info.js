@@ -1,5 +1,5 @@
-$(document).ready(function () {
-  $("form[name|='form']").submit(function (event) {
+$(document).ready(function() {
+  $("form[name|='form']").submit(function(event) {
     // get the form data
     var formData = new FormData(this);
     // process the form

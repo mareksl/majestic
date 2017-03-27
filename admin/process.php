@@ -1,5 +1,6 @@
 <?php
 include 'config.php';
+session_start();
 $conn = new mysqli($conn_server, $conn_user, $conn_pass, $conn_db);
 // Check connection
 if ($conn->connect_error) {
@@ -7,6 +8,12 @@ if ($conn->connect_error) {
 }
 mysqli_query($conn, 'SET CHARSET utf8');
 mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
+function localize_number($phone)
+{
+    $numbers_only = preg_replace("/[^\d]/", '', $phone);
+
+    return preg_replace("/^(\d{2})(\d{3})(\d{3})(\d{3})$/", '+$1-$2-$3-$4', $numbers_only);
+}
 $process = $_POST['process'];
 $errors = array();      // array to hold validation errors
 $data = array();      // array to pass back data
@@ -183,7 +190,7 @@ ON DUPLICATE KEY UPDATE filename='$file_name', filesize='$file_size'";
         }
     }
 } else {
-  $errors['upload'] = 'Rozmiar pliku za duży! Masymalny rozmiar to 20MB.';
+    $errors['upload'] = 'Rozmiar pliku za duży! Masymalny rozmiar to 20MB.';
 }
 if (!empty($errors)) {
     // if there are items in our errors array, return those errors
@@ -292,50 +299,67 @@ break;
 // ADD CONTACT
 case 'add_contact':
 if (empty($_POST['person'])) {
-		$errors['person'] = 'Uzupełnij imię!';
+    $errors['person'] = 'Uzupełnij imię!';
 }
 if (empty($_POST['email'])) {
-		$errors['email'] = 'Uzupełnij adres email!';
+    $errors['email'] = 'Uzupełnij adres email!';
 }
 if (empty($_POST['phone'])) {
-		$errors['phone'] = 'Uzupełnij numer telefonu!';
+    $errors['phone'] = 'Uzupełnij numer telefonu!';
 }
-
+if (!filter_var(($_POST['email']), FILTER_VALIDATE_EMAIL)) {
+    $errors['email'] = 'Nieprawidłowy adres email!';
+}
 if (!empty($errors)) {
-		// if there are items in our errors array, return those errors
-		$data['success'] = false;
-		$data['errors'] = $errors;
+    // if there are items in our errors array, return those errors
+        $data['success'] = false;
+    $data['errors'] = $errors;
 } else {
-	function localize_number($phone) {
-	  $numbers_only = preg_replace("/[^\d]/", "", $phone);
-	  return preg_replace("/^(\d{2})(\d{3})(\d{3})(\d{3})$/", "+$1-$2-$3-$4", $numbers_only);
-	}
-$contact_person = $_POST['person'];
-$contact_email = $_POST['email'];
-$contact_phone = localize_number($_POST['phone']);
-$sql = "INSERT INTO tbl_contact (person, email, phone) VALUES ('$contact_person', '$contact_email', '$contact_phone')";
-if ($conn->query($sql) === true) {
-    $data['success'] = true;
-    $data['message'] = 'Dodano kontakt!';
-} else {
-    $data['success'] = false;
-    $data['errors'] = $conn->error;
-}}
+    $contact_person = $_POST['person'];
+    $contact_email = $_POST['email'];
+    $contact_phone = localize_number($_POST['phone']);
+    $sql = "INSERT INTO tbl_contact (person, email, phone) VALUES ('$contact_person', '$contact_email', '$contact_phone')";
+    if ($conn->query($sql) === true) {
+        $data['success'] = true;
+        $data['message'] = 'Dodano kontakt!';
+    } else {
+        $data['success'] = false;
+        $data['errors'] = $conn->error;
+    }
+}
 echo json_encode($data);
 break;
 // EDIT CONTACT
 case 'edit_contact':
-$id = $_POST['id'];
-$contact_person = $_POST['person'];
-$contact_email = $_POST['email'];
-$contact_phone = $_POST['phone'];
-$sql = "UPDATE tbl_contact SET person = '$contact_person', email = '$contact_email', phone = '$contact_phone' WHERE ID = '$id'";
-if ($conn->query($sql) === true) {
-    $data['success'] = true;
-    $data['message'] = 'Edytowano kontakt!';
-} else {
+if (empty($_POST['person'])) {
+    $errors['person'] = 'Uzupełnij imię!';
+}
+if (empty($_POST['email'])) {
+    $errors['email'] = 'Uzupełnij adres email!';
+}
+if (empty($_POST['phone'])) {
+    $errors['phone'] = 'Uzupełnij numer telefonu!';
+}
+if (!filter_var(($_POST['email']), FILTER_VALIDATE_EMAIL)) {
+    $errors['email'] = 'Nieprawidłowy adres email!';
+}
+if (!empty($errors)) {
+    // if there are items in our errors array, return those errors
     $data['success'] = false;
-    $data['errors'] = $conn->error;
+    $data['errors'] = $errors;
+} else {
+    $id = $_POST['id'];
+    $contact_person = $_POST['person'];
+    $contact_email = $_POST['email'];
+    $contact_phone = localize_number($_POST['phone']);
+    $sql = "UPDATE tbl_contact SET person = '$contact_person', email = '$contact_email', phone = '$contact_phone' WHERE ID = '$id'";
+    if ($conn->query($sql) === true) {
+        $data['success'] = true;
+        $data['message'] = 'Edytowano kontakt!';
+    } else {
+        $data['success'] = false;
+        $data['errors'] = $conn->error;
+    }
 }
 echo json_encode($data);
 break;
@@ -344,11 +368,54 @@ case 'delete_contact':
 $id = $_POST['id'];
 $sql = "DELETE FROM tbl_contact WHERE ID='$id'";
 if ($conn->query($sql) === true) {
-$data['success'] = true;
-$data['message'] = 'Usunięto kontakt!';
+    $data['success'] = true;
+    $data['message'] = 'Usunięto kontakt!';
 } else {
-$data['success'] = false;
-$data['errors'] = $conn->error;
+    $data['success'] = false;
+    $data['errors'] = $conn->error;
+}
+echo json_encode($data);
+break;
+// EDIT PASSWORD
+case 'change_pass':
+if (empty($_POST['password'])) {
+    $errors['password'] = 'Stare hasło nie zgadza się!';
+}
+if (empty($_POST['password_new'])) {
+    $errors['password'] = 'Uzupełnij nowe hasło!';
+}
+if (($_POST['password_new']) != ($_POST['password_confirm'])) {
+    $errors['password'] = 'Nowe hasła nie zgadzają się!';
+}
+if (!empty($errors)) {
+    // if there are items in our errors array, return those errors
+    $data['success'] = false;
+    $data['errors'] = $errors;
+} else {
+    $username = $_SESSION['login_user'];
+  $password = md5($conn->real_escape_string($_POST['password']));
+  $password_new = md5($conn->real_escape_string($_POST['password_new']));
+  $password_confirm = md5($conn->real_escape_string($_POST['password_confirm']));
+  $sql = "SELECT ID FROM tbl_users WHERE username='$username' and password='$password'";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $id = $row['ID'];
+if ($result->num_rows == 1) {
+    $sql = "UPDATE tbl_users SET password='$password_new' WHERE ID='$id'";
+    if ($conn->query($sql) === false) {
+        $errors['connection'] = $conn->error;
+    }
+} else {
+    $errors['password'] = 'Stare hasło nie zgadza się!';
+}
+if (!empty($errors)) {
+    // if there are items in our errors array, return those errors
+    $data['success'] = false;
+    $data['errors'] = $errors;
+} else {
+    $data['success'] = true;
+    $data['message'] = 'Zmieniono hasło!';
+}
 }
 echo json_encode($data);
 break;
