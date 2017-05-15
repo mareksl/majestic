@@ -514,7 +514,7 @@ header {
 	}
 
 	.event-location {
-		text-align: right;
+		text-align: center;
 		font-size: 1.2rem;
 		font-weight: 400;
 		flex: 1 0 auto;
@@ -554,6 +554,7 @@ header {
 
 		.event-location {
 			font-weight: normal;
+			text-align: right;
 		}
 	}
 }

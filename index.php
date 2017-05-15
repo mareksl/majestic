@@ -215,10 +215,11 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                                     $date_year = date('Y', strtotime($row['date']));
                                       ?>
                                 <li>
-                                    <time datetime="<?php echo $date;?>" class="event-date-full"><span class="event-date"><?php echo $date_day;?></span><span class="event-year"><?php echo $date_year;?></span></time><span class="event-city"><?php echo $row['city'];?></span><span class="event-location"><a href="<?php echo $row['link'];?>"><?php echo $row['venue'];?></a></span></li>
+                                    <time datetime="<?php echo $date;?>" class="event-date-full"><span class="event-date"><?php echo $date_day;?></span><span class="event-year"><?php echo $date_year;?></span></time><span class="event-city"><?php echo $row['city'];?></span><span class="event-location">
+																			<?php if ($row['link'] <> '') { ?><a href="<?php echo $row['link'];?>"><?php echo $row['venue'];?></a><?php ;} else { echo $row['venue']; }?></span></li>
                                     <?php }} else { ?><li>Nie ma nic do wyświetlenia.</li><?php } ?>
                             </ul>
-                            <h3>Przeszłe</h3>
+                            <h3>Za nami</h3>
                             <ul class="events events-future">
                               <?php
                               $date_time = date('Y-m-d H:i:s');
@@ -231,7 +232,8 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                                     $date_year = date('Y', strtotime($row['date']));
                                       ?>
                                 <li>
-                                    <time datetime="<?php echo $date;?>" class="event-date-full"><span class="event-date"><?php echo $date_day;?></span><span class="event-year"><?php echo $date_year;?></span></time><span class="event-city"><?php echo $row['city'];?></span><span class="event-location"><a href="<?php echo $row['link'];?>"><?php echo $row['venue'];?></a></span></li>
+                                    <time datetime="<?php echo $date;?>" class="event-date-full"><span class="event-date"><?php echo $date_day;?></span><span class="event-year"><?php echo $date_year;?></span></time><span class="event-city"><?php echo $row['city'];?></span><span class="event-location">
+																			<?php if ($row['link'] <> '') { ?><a href="<?php echo $row['link'];?>"><?php echo $row['venue'];?></a><?php ;} else { echo $row['venue']; }?></span></li>
                                     <?php }} else { ?><li>Nie ma nic do wyświetlenia.</li><?php } ?>
                             </ul>
                             <button class="events-more">Pokaż wcześniejsze</button>
