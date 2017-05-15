@@ -219,7 +219,7 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
 																			<?php if ($row['link'] <> '') { ?><a href="<?php echo $row['link'];?>"><?php echo $row['venue'];?></a><?php ;} else { echo $row['venue']; }?></span></li>
                                     <?php }} else { ?><li>Nie ma nic do wyświetlenia.</li><?php } ?>
                             </ul>
-                            <h3>Przeszłe</h3>
+                            <h3>Za nami</h3>
                             <ul class="events events-future">
                               <?php
                               $date_time = date('Y-m-d H:i:s');

@@ -644,7 +644,7 @@ header {
     font-size: 1.2rem;
     flex: 0 0 20%; }
   .events .event-location {
-    text-align: right;
+    text-align: center;
     font-size: 1.2rem;
     font-weight: 400;
     flex: 1 0 auto; }
@@ -673,7 +673,8 @@ header {
   .events .event-date-full {
     flex-flow: column; }
   .events .event-location {
-    font-weight: normal; } }
+    font-weight: normal;
+    text-align: right; } }
 .contact {
   text-align: center;
   line-height: 2; }
