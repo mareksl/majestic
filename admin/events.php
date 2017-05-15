@@ -87,7 +87,7 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Link: </label>
-                                                                        <input class="form-control" name="link" placeholder="Link" required value="<?php echo $row['link']; ?>"/>
+                                                                        <input class="form-control" name="link" placeholder="Link" value="<?php echo $row['link']; ?>"/>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Data: </label>
@@ -189,7 +189,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Link: </label>
-                                <input class="form-control" name="link" placeholder="Link" required />
+                                <input class="form-control" name="link" placeholder="Link" />
                             </div>
                             <div class="form-group">
                                 <label>Data: </label>
