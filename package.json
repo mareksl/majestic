@@ -1,0 +1,17 @@
+{
+  "name": "majestic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mareksl/majestic",
+  "author": "Marek <marekslad@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-wait": "^0.0.2"
+  },
+  "scripts": {
+    "dev": "gulp bs"
+  }
+}

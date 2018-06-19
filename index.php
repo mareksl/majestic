@@ -118,48 +118,9 @@ mysqli_query($conn, 'SET NAMES `utf8` COLLATE `utf8_general_ci`');
                     </div>
                     <div class="row">
                         <div class="col col-2"></div>
-                        <div class="col col-8">
-                            <div class="row profile-grid">
-                                <figure class="profile">
-                                    <img src="img/profile_01.jpg" alt="Cichy">
-                                    <figcaption>
-                                        <h3><span>Bas: </span>Cichy</h3>
-                                    </figcaption>
-                                </figure>
-                                <figure class="profile">
-                                    <img src="img/profile_02.jpg" alt="Puzon">
-                                    <figcaption>
-                                        <h3><span>Puzon: </span>Puzon</h3>
-                                    </figcaption>
-                                </figure>
-                                <figure class="profile">
-                                    <img src="img/profile_03.jpg" alt="Adam">
-                                    <figcaption>
-                                        <h3><span>Perkusja: </span>Adam</h3>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="row profile-grid">
-                                <figure class="profile">
-                                    <img src="img/profile_04.jpg" alt="Król Arti">
-                                    <figcaption>
-                                        <h3><span>Gitara, Wokal: </span>Król Arti</h3>
-                                    </figcaption>
-                                </figure>
-                                <figure class="profile">
-                                    <img src="img/profile_05.jpg" alt="Michał">
-                                    <figcaption>
-                                        <h3><span>Wokal, Trąbka: </span>Michał</h3>
-                                    </figcaption>
-                                </figure>
-                                <figure class="profile">
-                                    <img src="img/profile_06.jpg" alt="Sasin z Bazin">
-                                    <figcaption>
-                                        <h3><span>Saksofon: </span>Sasin z Bazin</h3>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
+						<div class="col col-8">
+							<img src="img/main_photo.jpg" class="img-responsive" alt="Majestic Band in Concert">
+						</div>
                         <div class="col col-2"></div>
                     </div>
                 </div>
